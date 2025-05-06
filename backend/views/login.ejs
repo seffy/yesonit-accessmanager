@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskPilot</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/o-style.css" />
+  <meta name="description" content="TaskPilot - Tool Access Manager">
+  <meta name="keywords" content="TaskPilot, Task Pilot, TaskPilot, Task Pilot, Tool Access Manager, Tool Access Management">
+  <meta name="author" content="JosephSabana">
+  <meta property="og:image" content="/img/cover.png">
+  <meta property="og:title" content="TaskPilot">
+  <meta property="og:description" content="TaskPilot - Tool Access Manager">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+  <link href="/css/views.css" rel="stylesheet">
+</head>
+<body class="bg-pteal1">
+  <!-- hero banner with graphic -->
+	  <div class="darkmode-container hide">
+		<label class="mode-switch">
+  <input type="checkbox" id="darkModeToggle" />
+  <span class="slider"></span>
+</label>
+	  </div>
+
+
+	<div class="login-container">
+<div class="login-form-container">
+
+	  <div class="spacer-10"></div>
+ 
+		  <div class="spacer-10"></div>
+	
+      <p align="center"><img src="/img/logo.svg" width="250px" alt=""></p>
+
+    <div class="spacer-10"></div>
+  <% if (error) { %>
+    <div style="color: red;"><%= error %></div>
+  <% } %>
+    <div class="spacer-10"></div>
+   <form action="/login" method="POST">
+            
+                   <div class="input-group">
+                      <input class="input" required autocomplete="off" type="email" name="email" id="email">
+                      <label class="label" for="email">Email Address</label>
+                   </div>
+                   <div class="input-group"> 
+                      <input class="input" required autocomplete="off" id="password" name="password" type="password">
+                      <label class="label" for="password">Password</label>	  
+                   </div>
+                   <button class="" type="submit">Login</button>
+                   <div class="spacer-10"></div>
+                   <p class="bottom-note">Contact your IT Administrator to gain access. </p>
+
+                </form>
+
+  <div class="spacer-10"></div>
+	
+
+	
+	</div>
+		
+		    
+ 
+	
+	
+	</div>
+	
+	
+
+ 
+  
+          
+            <script src="/js/theme.js"></script>
+     
+
+</body>
+</html>

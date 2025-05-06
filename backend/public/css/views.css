@@ -1,0 +1,198 @@
+@media (max-width: 768px) {
+	
+	.dropdown ul {
+	max-height: 200px;	
+		min-height: 200px;	
+	}
+	
+	.ig-logo-highlight {
+		display: none;
+	}
+	.container {
+  width: min(100% - 2rem, 120ch);
+
+	margin: 0px auto;
+}
+.hero-content {
+	position: relative;
+	display: block;
+	margin: 0px auto;
+	}
+	
+	.hero-text {
+		display: block!important;
+		width: 100%;
+		max-width: 100%;
+}
+	.hero-graphic {
+		display: block;
+		width: 100%;
+
+  /* you can also use position:absolute for full-bleed backgrounds */
+}
+	
+		.hero-graphic img {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+
+  /* you can also use position:absolute for full-bleed backgrounds */
+}
+	
+	.i-hero-graphic {
+		display: none;
+
+
+  /* you can also use position:absolute for full-bleed backgrounds */
+}
+	
+	.spacer-100 {
+		display: none;
+	}
+	
+	
+	
+.walk-col-hero-content {
+	position: relative;
+	display: block;
+	
+	}
+	
+	.walk-col-hero-text {
+		display: block!important;
+		width: 100%;
+}
+	.walk-col-hero-graphic {
+		display: block;
+		width: 100%;
+		margin-top: 50px;
+
+  /* you can also use position:absolute for full-bleed backgrounds */
+}
+
+	
+	
+	
+
+		body {
+	background-image: none;
+}
+	
+	.btn2 {
+		width: 100px;
+		display: block;
+		border-radius: none;
+	}
+	.nav1-btn {
+		border-radius: 8px 8px 0 0;
+		
+	}
+	
+		.nav3-btn {
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+            
+		
+	}
+	
+	
+ 
+	.container-x {
+	margin-top: 15%;
+}
+	
+	.w-title {
+font-size: 20px;
+
+	}
+	
+	.btn-back {
+		width: 50px;
+		height: 40px;
+		right: -40px;
+		text-align: center;
+		display: none;
+	}
+	
+	.goback {
+		display: none;
+	}
+	.text-myob{
+		margin-top: 20px;
+	}
+	
+	div.sticky {
+	position: sticky;
+	top: 10px;
+
+	z-index: 99999;
+}
+	
+	  .title-container-x {
+    flex-direction: column;
+  }
+  
+  .t-column-x:first-child {
+    order: 2; /* Moves first column to second */
+  }
+  
+.back-btn-div {
+display: none;
+  } 
+
+	
+
+
+  .cards_item {
+width: 100%;
+  
+}
+	
+	.card {
+		width: 100%;
+}
+	
+
+	
+	.hideonmob {
+	display: none;
+}
+
+	.myob-logo-sticky {
+	background-image: url("../img/MYOB-Acumatica-Logo.png");
+	background-position: centerleft;
+	background-size: 90px;
+	background-repeat: no-repeat;
+	width: 100px;
+
+		vertical-align: middle;
+
+	display: inline-flex;
+	justify-content: center;
+	align-content: center;
+}
+	
+.iconDiv {
+	
+ top: -5px;
+	position: absolute;
+	right: -30px;
+
+}
+	
+.t-column-1 {
+  flex: 90%;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+	.t-column-2 {
+  flex: 0;
+
+}
+	
+
+
+
+}

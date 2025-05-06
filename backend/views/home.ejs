@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskPilot</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/o-style.css" />
+  <meta name="description" content="TaskPilot - Tool Access Manager">
+  <meta name="keywords" content="TaskPilot, Task Pilot, TaskPilot, Task Pilot, Tool Access Manager, Tool Access Management">
+  <meta name="author" content="JosephSabana">
+  <meta property="og:image" content="/img/cover.png">
+  <meta property="og:title" content="TaskPilot">
+  <meta property="og:description" content="TaskPilot - Tool Access Manager">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+  <link href="/css/views.css" rel="stylesheet">
+</head>
+<body>
+  <!-- hero banner with graphic -->
+  <section class="i-hero">
+	  
+	  <!-- header with logo and two selects + separators -->
+  <header class="i-site-header ">
+    <div class="i-container header-inner">
+		
+      <div class="ig-logo" onClick="">
+
+        <span class="ig-logo-highlight"></span>
+      </div>
+        <nav class="nav-controls" aria-label="Page navigation">	
+          <details class="dropdown">
+            <summary>Go to</summary> 
+            <ul>
+              <li><a href="content/login/login.html">Home</a></li>
+              <li><a href="content/login/login.html">Login</a></li>
+				 <li><a href="content/login/login.html">Login</a></li>
+				 <li><a href="content/login/login.html">Login</a></li>
+				 <div class="spacer-20"></div>
+            </ul>
+          </details>
+			
+        </nav>
+       
+    </div>
+
+
+
+  <div class="darkmode-container">
+    <label class="mode-switch">
+ <input type="checkbox" id="darkModeToggle" />
+ <span class="slider"></span>
+</label>
+
+<a href="/logout" class="logout-button">
+  <i class="material-icons-outlined">logout</i>
+  Logout
+</a>
+   </div>
+
+  
+
+
+	  		
+	 
+
+
+
+	  
+	  <!--
+	   <div class="theme-switcher" role="radiogroup" aria-label="Color theme">
+      <button data-theme-value="light" aria-pressed="false">Light</button>
+      <button data-theme-value="dark"  aria-pressed="false">Dark</button>
+      <button data-theme-value="auto"  aria-pressed="true">Auto</button>
+    </div>
+-->
+	  
+  </header>
+
+	  
+	  
+	  
+    <div class="i-container hero-content">
+		
+		
+		<div class="spacer-100"></div>
+      <div class="i-hero-text">
+		  <div class="spacer-100"></div>
+		  
+        <div class="header-logo">
+		  
+		  <a href="/home" class="no-dec">
+      <div class="ig-logo" onClick="">
+TaskPilot
+        <span class="ig-text">Tool Access Manager</span>
+      </div>
+		</a>
+		  
+		  
+		  </div>
+        <h1>Access Management Dashboard</h1>
+		  
+
+		  
+      </div>
+      <div class="i-hero-graphic">
+  <!-- Replace with SVG/PNG -->
+        <img src="/img/cover.svg" alt="" aria-hidden="true">
+      </div>
+		
+		
+		
+    </div>
+	  	<div class="spacer-100"></div>
+	  <div class="spacer-100"></div>
+  </section>
+
+
+  <!-- main content card -->
+  <main class="i-container">
+    <div class="i-container-card">
+
+		
+		
+		 <section class="modules">
+    <div class="module-card" onclick="location.href='/request';">
+		<img src="/img/svg/login.svg" class="card-icon" alt="" style="margin-top: -10px">
+      <h2>New Request</h2>
+   <div class="card-text">Description</div>
+    </div>
+  
+	<div class="module-card" onclick="location.href='/requests';">
+		<img src="/img/svg/requsition.svg" class="card-icon" alt="" style="margin-top: -10px">
+      <h2>View Submissions</h2>
+   <div class="card-text">Description</div>
+    </div>
+			 
+			   <% if (user.accessLevel === 'Level 3' || user.accessLevel === 'Level 4' || user.accessLevel === 'Level 5') { %>
+
+	<div class="module-card" onclick="location.href='/request';">
+		<img src="/img/svg/po.svg" class="card-icon" alt="" style="margin-top: -10px">
+      <h2>Manage Requests</h2>
+   <div class="card-text">Description</div>
+    </div>
+			 
+	<div class="module-card" onclick="location.href='/add-tool';">
+		<img src="/img/svg/add.svg" class="card-icon" alt="" style="margin-top: -10px">
+      <h2>Add Tool</h2>
+   <div class="card-text">Description</div>
+    </div>
+			 
+<div class="module-card" onclick="location.href='/add-user';">
+		<img src="/img/svg/add-user.svg" class="card-icon" alt="" style="margin-top: -10px">
+      <h2>Add User</h2>
+   <div class="card-text">Description</div>
+    </div>
+			 
+			 
+	<div class="module-card" onclick="location.href='/request';">
+		<img src="/img/svg/manage-user.svg" class="card-icon" alt="" style="margin-top: -10px">
+      <h2>Manage Users</h2>
+   <div class="card-text">Description</div>
+    </div>
+			 
+	  <% } %>
+		 
+  </section>
+
+		
+		
+		
+	
+
+	
+    </div>
+      
+      
+
+      
+      
+  </main>
+
+    
+        
+             
+      
+     <!-- Footer Section -->
+<footer class="footer" >
+
+  <div class="footer-content" >
+    
+       <!-- Project Information -->
+    <div style="" class="f-col-1">
+          <p><img src="/img/logo.svg" alt=""></p>
+      <ul>
+        <li><strong>TaskPilot - Tool Access Manager</strong></li>
+        <li class="">Designed and Developed by: Joseph Sabana, Student, SIT727</li>
+      </ul>
+    </div>
+      
+
+   
+
+  </div>
+
+  <!-- Bottom Legal Line -->
+ <!-- Bottom Legal Footer Line -->
+<div class="btm-legal" >
+  <div class="btm-text" >
+    
+    <!-- Left side: Legal Text and Links -->
+    <div class="btm-text-left" >
+      <span>&copy; 2025 All rights reserved.</span>
+        <div class="hide">
+      <a href="#" style="color: #999; text-decoration: none;">Privacy Policy</a>
+      <span>|</span>
+      <a href="#" style="color: #999; text-decoration: none;">Terms of Use</a>
+      <span>|</span>
+      <a href="#" style="color: #999; text-decoration: none;">Sales and Refunds</a>
+      <span>|</span>
+      <a href="#" style="color: #999; text-decoration: none;">Legal</a>
+      <span>|</span>
+      <a href="#" style="color: #999; text-decoration: none;">Site Map</a>
+            </div>
+    </div>
+
+    <!-- Right side: Country -->
+    <div class="btm-text-right" >
+      <span><img src="/img/au.svg" width="20px" alt=""> Australia</span>
+    </div>
+
+  </div>
+</div>
+
+<p class="latestupdate" id="latestupdate"></p>
+	
+	</footer>
+          
+            <script src="/js/theme.js"></script>
+     
+
+</body>
+</html>
