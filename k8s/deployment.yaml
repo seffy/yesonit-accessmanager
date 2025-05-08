@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskpilot-accessmanager-deployment
+  labels:
+    app: taskpilot-accessmanager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: taskpilot-accessmanager
+  template:
+    metadata:
+      labels:
+        app: taskpilot-accessmanager
+    spec:
+      containers:
+      - name: taskpilot-accessmanager
+        image: taskpilot-accessmanager:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 4000
+        env:
+        - name: MONGO_URI
+          valueFrom:
+            secretKeyRef:
+              name: taskpilot-accessmanager-secret
+              key: MONGO_URI
+        - name: SESSION_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: taskpilot-accessmanager-secret
+              key: SESSION_SECRET
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
