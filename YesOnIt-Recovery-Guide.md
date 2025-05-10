@@ -1,5 +1,5 @@
 
-# TaskPilot Access Manager – Kubernetes Restart Recovery Guide
+# yesonit Access Manager – Kubernetes Restart Recovery Guide
 
 ## 📋 Problem Encountered
 When restarting Docker Desktop (and Kubernetes), some resources like Kubernetes Secrets and environment settings are lost.

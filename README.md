@@ -1,7 +1,13 @@
+# YesOnIt Platform 
 
-# TaskPilot Access Manager
+- is an internal workflow tool that integrates both the Content Request Manager and Tool Access Request Manager into a unified platform. Designed for use within companies or organizations, it enables employees to securely submit content development requests, request tool access, and track the progress of approvals based on predefined user roles.
 
-TaskPilot Access Manager is a cloud-native web application designed for managing tool access requests within an organization.
+With built-in admin functionality and role-based access controls, yesonit ensures that only authorized users can manage or approve requests. The platform is tailored for departmental use cases across Learning & Development (L&D), Marketing, Human Resources (HR), and other internal service teams—providing a streamlined and secure alternative to email- or spreadsheet-based request tracking.
+
+
+# yesonit Tool Access Manager
+
+yesonit Tool Access Manager is a cloud-native web application designed for managing tool access requests within an organization.
 
 Built using Node.js, Express, and MongoDB Atlas, the system supports user authentication, access level control, and CRUD operations for users, tools, and access requests.
 
@@ -30,7 +36,7 @@ Environment configurations are externalized using Kubernetes ConfigMaps and Secr
 ## 📦 Project Structure
 
 ```
-TASKPILOT-ACCESSMANAGER/
+yesonit-ACCESSMANAGER/
 ├── backend/
 │   ├── app.js
 │   ├── Dockerfile
@@ -96,13 +102,13 @@ http://localhost:3000/login
 2. Build the Docker image:
 
 ```bash
-docker build -t taskpilot-accessmanager .
+docker build -t yesonit-accessmanager .
 ```
 
 3. Run the Docker container:
 
 ```bash
-docker run -p 3000:3000 taskpilot-accessmanager
+docker run -p 3000:3000 yesonit-accessmanager
 ```
 
 4. Access the app at:
@@ -115,8 +121,8 @@ http://localhost:3000/login
 1. Push your Docker image to DockerHub:
 
 ```bash
-docker tag taskpilot-accessmanager josabana/taskpilot-accessmanager
-docker push josabana/taskpilot-accessmanager
+docker tag yesonit-accessmanager josabana/yesonit-accessmanager
+docker push josabana/yesonit-accessmanager
 ```
 
 ## Deployment Steps
@@ -136,7 +142,7 @@ Create `k8s/secret.yaml`:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: taskpilot-secrets
+  name: yesonit-secrets
 type: Opaque
 data:
   MONGO_URI: <base64_mongo_uri>
@@ -157,7 +163,7 @@ kubectl apply -f k8s/secret.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: taskpilot-config
+  name: yesonit-config
 data:
   PORT: "3000"
 ```
@@ -178,27 +184,27 @@ Create `k8s/deployment.yaml`:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: taskpilot-accessmanager-deployment
+  name: yesonit-accessmanager-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: taskpilot-accessmanager
+      app: yesonit-accessmanager
   template:
     metadata:
       labels:
-        app: taskpilot-accessmanager
+        app: yesonit-accessmanager
     spec:
       containers:
-      - name: taskpilot-accessmanager
-        image: taskpilot-accessmanager:latest
+      - name: yesonit-accessmanager
+        image: yesonit-accessmanager:latest
         ports:
         - containerPort: 3000
         envFrom:
         - secretRef:
-            name: taskpilot-secrets
+            name: yesonit-secrets
         - configMapRef:
-            name: taskpilot-config
+            name: yesonit-config
         imagePullPolicy: IfNotPresent
 ```
 
@@ -218,11 +224,11 @@ Create `k8s/service.yaml`:
 apiVersion: v1
 kind: Service
 metadata:
-  name: taskpilot-accessmanager-service
+  name: yesonit-accessmanager-service
 spec:
   type: NodePort
   selector:
-    app: taskpilot-accessmanager
+    app: yesonit-accessmanager
   ports:
     - protocol: TCP
       port: 3000
@@ -248,12 +254,12 @@ Create `k8s/hpa.yaml`:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: taskpilot-accessmanager-hpa
+  name: yesonit-accessmanager-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: taskpilot-accessmanager-deployment
+    name: yesonit-accessmanager-deployment
   minReplicas: 1
   maxReplicas: 3
   metrics:
@@ -291,7 +297,7 @@ kubectl logs <pod-name>
 
 
 
-# TaskPilot Access Manager – Updating Workflow (After Local Code Changes)
+# yesonit Access Manager – Updating Workflow (After Local Code Changes)
 
 ## 📋 When you make local code changes
 
@@ -306,13 +312,13 @@ If you modify your app code (Node.js backend, EJS frontend, routes, controllers,
 ## 🛠 Step 1: Rebuild Docker Image
 
 ```bash
-docker build -t taskpilot-accessmanager .
+docker build -t yesonit-accessmanager .
 ```
 
 Or build directly tagged for Docker Hub:
 
 ```bash
-docker build -t josabana/taskpilot-accessmanager .
+docker build -t josabana/yesonit-accessmanager .
 ```
 
 ---
@@ -322,7 +328,7 @@ docker build -t josabana/taskpilot-accessmanager .
 If your image was built without Docker Hub name, tag it:
 
 ```bash
-docker tag taskpilot-accessmanager josabana/taskpilot-accessmanager
+docker tag yesonit-accessmanager josabana/yesonit-accessmanager
 ```
 
 ✅ This tells Docker to point to your Docker Hub repo.
@@ -332,7 +338,7 @@ docker tag taskpilot-accessmanager josabana/taskpilot-accessmanager
 ## 🛠 Step 3: Push to Docker Hub
 
 ```bash
-docker push josabana/taskpilot-accessmanager
+docker push josabana/yesonit-accessmanager
 ```
 
 ✅ Your latest code is now available on Docker Hub.
@@ -356,7 +362,7 @@ kubectl delete pod <your-pod-name>
 Example:
 
 ```bash
-kubectl delete pod taskpilot-accessmanager-deployment-xxx-xxxxx
+kubectl delete pod yesonit-accessmanager-deployment-xxx-xxxxx
 ```
 
 ✅ Kubernetes Deployment will automatically create a new pod using your updated image.
@@ -375,8 +381,8 @@ Example:
 
 ```yaml
 containers:
-- name: taskpilot-accessmanager
-  image: josabana/taskpilot-accessmanager
+- name: yesonit-accessmanager
+  image: josabana/yesonit-accessmanager
   ports:
   - containerPort: 3000
   imagePullPolicy: Always
@@ -419,7 +425,7 @@ containers:
 - Designed and Developed by JosephSabana for SIT727 Cloud Computing Project
 
 ```
-taskpilot-accessmanager
+yesonit-accessmanager
 ├─ README.md
 ├─ backend
 │  ├─ .dockerignore
@@ -472,7 +478,7 @@ taskpilot-accessmanager
 
 
 
-# TaskPilot Access Manager – Kubernetes Restart Recovery Guide
+# yesonit Access Manager – Kubernetes Restart Recovery Guide
 
 ## 📋 Problem Encountered
 When restarting Docker Desktop (and Kubernetes), some resources like Kubernetes Secrets and environment settings are lost.

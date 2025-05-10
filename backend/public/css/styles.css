@@ -185,13 +185,6 @@
 .theme-switcher button:not([aria-pressed="true"]):hover {
   background: rgba(0,0,0,0.05);
 }
-/* Ensure header flex layout can accommodate it */
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 
 /* Reset & base */
 *,

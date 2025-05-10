@@ -1,7 +1,7 @@
 {
-    "name": "taskpilot18-backend",
+    "name": "yesonit-backend",
     "version": "1.0.0",
-    "description": "Backend for TaskPilot18 Tool Access App",
+    "description": "Backend for yesonit Access Manager",
     "main": "app.js",
     "scripts": {
         "start": "node app.js",

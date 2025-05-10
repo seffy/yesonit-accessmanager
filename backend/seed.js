@@ -10,8 +10,8 @@ async function createTestUser() {
     });
 
     const newUser = new User({
-      name: 'TaskPilot Admin',
-      email: 'admin@taskpilot.com',
+      name: 'yesonit Admin',
+      email: 'admin@yesonit.com',
       password: 'Password123',
       department: 'IT',
       accessLevel: 'Level 1'
