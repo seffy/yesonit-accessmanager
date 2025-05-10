@@ -1,8 +1,8 @@
-# YesOnIt Platform 
+# yesonit Platform 
 
-- is an internal workflow tool that integrates both the Content Request Manager and Tool Access Request Manager into a unified platform. Designed for use within companies or organizations, it enables employees to securely submit content development requests, request tool access, and track the progress of approvals based on predefined user roles.
+`yesonit` is a unified internal workflow platform purpose-built to simplify and automate resource access, request management, and internal operations across teams. Designed with scalability and role-based control in mind, `yesonit` empowers organizations to centralize requests, streamline approvals, and improve accountability—all within a secure, cloud-native environment.
 
-With built-in admin functionality and role-based access controls, yesonit ensures that only authorized users can manage or approve requests. The platform is tailored for departmental use cases across Learning & Development (L&D), Marketing, Human Resources (HR), and other internal service teams—providing a streamlined and secure alternative to email- or spreadsheet-based request tracking.
+Whether it’s accessing internal tools, submitting marketing content briefs, or returning IT assets, `yesonit` provides a modular suite of apps tailored to real-world enterprise needs.
 
 
 # yesonit Tool Access Manager
