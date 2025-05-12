@@ -1,10 +1,10 @@
 # y!on8 Platform Overview
 
-**y!on8** (pronounced "yes, on it") is a modular, cloud-native enterprise platform built to streamline internal workflows for small to medium enterprises (SMEs). Each application within the platform is designed and deployed as an independent microservice, allowing for better scalability, flexibility, and maintenance.
+`y!on8` (formerly known as TaskPilot, and pronounced “yes, on it”) is a unified, modular, cloud-native platform designed to simplify and automate internal workflows across organizations. It enables teams to manage resource access, content requests, approvals, and operational tasks through scalable, role-based tools—all within a secure and centralized environment.
 
-## 🌐 Platform Description
+Each application within y!on8 is built and deployed as an independent microservice, allowing for enhanced scalability, maintainability, and flexibility. The platform integrates seamlessly using a shared frontend UI (EJS), connects to cloud-hosted MongoDB databases, and is deployed using Docker and Kubernetes—making it ideal for small to medium enterprises (SMEs) as well as growing teams.
 
-y!on8 serves as the umbrella system that integrates a suite of focused tools — each solving a specific internal process challenge. The platform uses a shared frontend UI (EJS), connects to cloud-hosted MongoDB databases, and is deployed using Docker and Kubernetes.
+Whether it’s submitting a content development request, requesting access to enterprise tools, or managing IT asset handovers, y!on8 provides a tailored suite of apps that align with real-world business processes and internal control standards.
 
 ---
 
