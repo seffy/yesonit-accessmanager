@@ -28,10 +28,14 @@ app.use(session({
 }));
 
 // Redirect root URL to /login
-app.get('/', (req, res) => {
-    res.redirect('/login');
-  });
+// app.get('/', (req, res) => {
+//    res.redirect('/login');
+//  });
   
+
+  app.get('/', (req, res) => {
+  res.render('yesonit');
+});
 
 // Routes
 app.use('/', authRoutes);

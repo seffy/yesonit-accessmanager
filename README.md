@@ -1,22 +1,51 @@
-# yesonit Platform 
+# y!on8 Platform Overview
 
-`yesonit` is a unified internal workflow platform purpose-built to simplify and automate resource access, request management, and internal operations across teams. Designed with scalability and role-based control in mind, `yesonit` empowers organizations to centralize requests, streamline approvals, and improve accountability—all within a secure, cloud-native environment.
+**y!on8** (pronounced "yes, on it") is a modular, cloud-native enterprise platform built to streamline internal workflows for small to medium enterprises (SMEs). Each application within the platform is designed and deployed as an independent microservice, allowing for better scalability, flexibility, and maintenance.
 
-Whether it’s accessing internal tools, submitting marketing content briefs, or returning IT assets, `yesonit` provides a modular suite of apps tailored to real-world enterprise needs.
+## 🌐 Platform Description
 
-
-# yesonit Tool Access Manager
-
-yesonit Tool Access Manager is a cloud-native web application designed for managing tool access requests within an organization.
-
-Built using Node.js, Express, and MongoDB Atlas, the system supports user authentication, access level control, and CRUD operations for users, tools, and access requests.
-
-The application has been containerized using Docker and orchestrated using Kubernetes, with complete implementation of Deployment, Service, ConfigMap, Secret, and Horizontal Pod Autoscaler (HPA).
-
-Environment configurations are externalized using Kubernetes ConfigMaps and Secrets to align with best security practices.
-
+y!on8 serves as the umbrella system that integrates a suite of focused tools — each solving a specific internal process challenge. The platform uses a shared frontend UI (EJS), connects to cloud-hosted MongoDB databases, and is deployed using Docker and Kubernetes.
 
 ---
+
+## 🧩 Microservices Within y!on8
+
+Each microservice has:
+- Its own Node.js + Express backend
+- A dedicated MongoDB Atlas database
+- Independent deployment with Docker and Kubernetes
+- Secrets and configuration managed via Kubernetes Secrets & ConfigMaps
+
+| Microservice | Description |
+|--------------|-------------|
+| **Access Manager** | Allows users to request internal tool access, with approval workflow and admin controls. |
+| **Training Request Manager** | Handles employee training/course requests and supervisor approval tracking. |
+| **Content Request Development Manager** | Enables departments to request learning, media, or marketing content. |
+| **Asset & Equipment Manager** | Manages IT asset checkout requests like laptops, monitors, etc. |
+| **Software License Manager** | Tracks and handles requests for software licenses and renewals. |
+
+---
+
+
+# 📦 y!onit Tool Access Manager
+
+The **y!onit Tool Access Manager** is another modular service within the **y!on8** platform.  
+It enables employees to request access to internal tools, platforms, and software licenses in a structured, trackable way.
+
+This module simplifies the tool access workflow by allowing users to:
+- Submit tool access requests for themselves or on behalf of others
+- Choose from a predefined list of internal tools and systems
+- Provide justifications and approval contacts
+- Track request status through stages such as *Pending*, *Approved*, and *Provisioned*
+
+The application is built as an independent microservice, sharing the y!on8 UI and MongoDB backend, and is deployed using Docker and Kubernetes. Role-based access ensures that only authorized users can view or approve access requests, supporting both security and operational efficiency.
+
+## 🎯 Ideal Use Case
+
+This tool is ideal for:
+- Onboarding new employees who need access to tools like Jira, Slack, Adobe, internal CRMs, etc.
+- Managing role-based or department-based tool entitlements
+- Creating a centralized record of who has access to what tools and why
 
 ## 📋 Features
 - User Authentication (Login/Logout)
@@ -33,10 +62,10 @@ Environment configurations are externalized using Kubernetes ConfigMaps and Secr
 
 ---
 
-## 📦 Project Structure
+## 📦 Project Structure - y!onit Tool Access Manager
 
 ```
-yesonit-ACCESSMANAGER/
+yesonit-crm/
 ├── backend/
 │   ├── app.js
 │   ├── Dockerfile
