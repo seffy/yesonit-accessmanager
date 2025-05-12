@@ -65,23 +65,55 @@ This tool is ideal for:
 ## 📦 Project Structure - y!onit Tool Access Manager
 
 ```
-yesonit-crm/
-├── backend/
-│   ├── app.js
-│   ├── Dockerfile
-│   ├── controllers/
-│   ├── models/
-│   ├── public/
-│   ├── routes/
-│   └── views/
-├── k8s/
-│   ├── configmap.yaml
-│   ├── secret.yaml
-│   ├── deployment.yaml
-│   ├── service.yaml
-│   └── hpa.yaml
-├── .env (for local testing only)
-├── README.md
+yesonit-accessmanager
+├─ README.md
+├─ backend
+│  ├─ .dockerignore
+│  ├─ Dockerfile
+│  ├─ app.js
+│  ├─ controllers
+│  │  ├─ authController.js
+│  │  ├─ homeController.js
+│  │  ├─ toolAccessController.js
+│  │  ├─ toolController.js
+│  │  └─ userController.js
+│  ├─ models
+│  │  ├─ Counter.js
+│  │  ├─ Tool.js
+│  │  ├─ ToolAccessRequest.js
+│  │  └─ User.js
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ public
+│  │  ├─ css
+│  │  │  ├─ o-style.css
+│  │  │  ├─ styles.css
+│  │  │  ├─ views.css
+│  │  │  └─ workflow.css
+│  │  ├─ img
+│  │  └─ js
+│  │     └─ theme.js
+│  ├─ routes
+│  │  ├─ authRoutes.js
+│  │  ├─ homeRoutes.js
+│  │  ├─ toolAccessRoutes.js
+│  │  ├─ toolRoutes.js
+│  │  └─ userRoutes.js
+│  ├─ seed.js
+│  └─ views
+│     ├─ addTool.ejs
+│     ├─ addUser.ejs
+│     ├─ home.ejs
+│     ├─ login.ejs
+│     ├─ requestTool.ejs
+│     └─ viewRequests.ejs
+├─ k8s
+│  ├─ configmap.yaml
+│  ├─ deployment.yaml
+│  ├─ hpa.yaml
+│  ├─ secret.yaml
+│  └─ service.yaml
+
 ```
 
 ---
@@ -450,63 +482,6 @@ containers:
 
 ---
 
-## 👨‍💻 Developer
-- Designed and Developed by JosephSabana for SIT727 Cloud Computing Project
-
-```
-yesonit-accessmanager
-├─ README.md
-├─ backend
-│  ├─ .dockerignore
-│  ├─ Dockerfile
-│  ├─ app.js
-│  ├─ controllers
-│  │  ├─ authController.js
-│  │  ├─ homeController.js
-│  │  ├─ toolAccessController.js
-│  │  ├─ toolController.js
-│  │  └─ userController.js
-│  ├─ models
-│  │  ├─ Counter.js
-│  │  ├─ Tool.js
-│  │  ├─ ToolAccessRequest.js
-│  │  └─ User.js
-│  ├─ package-lock.json
-│  ├─ package.json
-│  ├─ public
-│  │  ├─ css
-│  │  │  ├─ o-style.css
-│  │  │  ├─ styles.css
-│  │  │  ├─ views.css
-│  │  │  └─ workflow.css
-│  │  ├─ img
-│  │  └─ js
-│  │     └─ theme.js
-│  ├─ routes
-│  │  ├─ authRoutes.js
-│  │  ├─ homeRoutes.js
-│  │  ├─ toolAccessRoutes.js
-│  │  ├─ toolRoutes.js
-│  │  └─ userRoutes.js
-│  ├─ seed.js
-│  └─ views
-│     ├─ addTool.ejs
-│     ├─ addUser.ejs
-│     ├─ home.ejs
-│     ├─ login.ejs
-│     ├─ requestTool.ejs
-│     └─ viewRequests.ejs
-├─ k8s
-│  ├─ configmap.yaml
-│  ├─ deployment.yaml
-│  ├─ hpa.yaml
-│  ├─ secret.yaml
-│  └─ service.yaml
-
-```
-
-
-
 # yesonit Access Manager – Kubernetes Restart Recovery Guide
 
 ## 📋 Problem Encountered
@@ -570,3 +545,8 @@ Login should now work without server errors.
 After restarting Docker Desktop, always:
 1. Reapply `k8s/secret.yaml`.
 2. Delete pods if necessary to trigger fresh deployment.
+
+
+
+## 👨‍💻 Developer
+- Designed and Developed by JosephSabana for SIT727 Cloud Computing Project
