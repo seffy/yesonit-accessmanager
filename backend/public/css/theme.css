@@ -14,8 +14,9 @@
 --button: #06A76E;	
     --footer: #f8f8f8;	
 		--border: #d3d3d3;
---nav: rgba(22, 22, 23, 0.8);
+--nav: #048E6D;
 --login-con: rgba(255, 255, 255, 0.8);
+--wfhighlight: #83BAB6;
 /* ----- */
 	
 	
@@ -47,15 +48,18 @@
 [data-theme="dark"] {
  --primary-text: #f5f5f7;
 --secondary-text: #86868b;
---background: #000000;
+--background: #111111;
 		--secondary-bg: #191919;
 --card-bg: #1d1d1f;
 --border-color: #333336;
 --accent: #2997ff;
 		 --footer: #000;
-	--border: #111111;
+	--border: #333;
   --login-bg: #191919;
   --login-con: rgba(22, 22, 23, 0.8);
+  --nav: #000;
+  --wfhighlight: #222222;
+
         }
 
 

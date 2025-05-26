@@ -1,83 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YesOnIt! Access Manager</title>
-  <meta name="description" content="YesOnIt - Tool Access Manager">
-  <meta name="keywords" content="YesOnIt, YesOnIt, YesOnIt, YesOnIt, Tool Access Manager, Tool Access Management">
-  <meta name="author" content="JosephSabana">
-  <meta property="og:image" content="img/cover.png">
-  <meta property="og:title" content="YesOnIt">
-  <meta property="og:description" content="YesOnIt - Tool Access Manager">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
-
-	  <link href="/css/new-styles.css" rel="stylesheet">
-	  <link href="/css/theme.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>YesOnIt! Access Manager</title>
+    <meta name="description" content="YesOnIt - Tool Content Development">
+    <meta name="keywords" content="YesOnIt, YesOnIt, YesOnIt, YesOnIt, Tool Content Development, Tool Access Management">
+    <meta name="author" content="JosephSabana">
+    <meta property="og:image" content="img/cover.png">
+    <meta property="og:title" content="YesOnIt">
+    <meta property="og:description" content="YesOnIt - Tool Content Development">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+    <link href="/css/new-styles.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
 	
-
 </head>
-<body>
-	<div class="main-con">
-    <nav class="nav" >
-        <div class="nav-logo">
-          <!--   <img src="img/yesonit-1.svg"  alt="" id="logo" class="ylogo"> 
+   <body>
+    <div class="main-con">
+     <%- include('partials/header') %>
+<div style="height: 150vh!important;">
 
-
-            <img src="img/logo-sym-2t.svg"  alt="" id="logo" class="ylogo">  
-	
---> <h1 class="logo-text"> y!on8</h1>
-
-
-     
-	
-        </div>
-
-		<div class="profile-container">
-			
-			<div class="darkmode-container">
-					<label class="mode-switch">
- <input type="checkbox" id="darkModeToggle" />
- <span class="slider"></span>
-</label></div>
-  <img src="img/profilepic.png" alt="Avatar" class="profile-icon" id="profileIcon">
-  
-  <div class="profile-popup" id="profilePopup">
-    <div class="profile-header">
-      <img src="img/profilepic.png" alt="User Avatar" class="avatar">
-      <div>
-        <div class="name"><%= user.name %></div>
-
-        <div class="email"><%= user.email %></div>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div class="menu-item"><i class="material-icons-outlined">
-settings
-</i> Settings</div>
-    <div class="menu-item">
-      <a href="#"><i class="material-icons-outlined">
-feedback
-</i> Send Feedback</a>
-    </div>
-    <div class="divider"></div>
-	  
-	  <a href="/logout" class="no-dec">
-		   <div class="menu-item signout">
-  <i class="material-icons-outlined">logout</i>
-  Logout </div>
-</a>
-  </div>
-</div>
-	
-		       
-		
-		
-
-		
-		
-    </nav>
+  <!--Content-->
 
     <section class="hero-left container">
 
@@ -95,7 +39,7 @@ feedback
             <div class="card-header-am">
                 <div class="card-logo-am"><img src="img/svg/login.svg" alt=""></div>
                 <div>
-					<h3>Submit New Request</h3>
+					<h3>New Request</h3>
 				<p class="card-description">Request access to internal tools or software</p>
 				
 				</div>
@@ -107,7 +51,7 @@ feedback
             <div class="card-header-am">
                 <div class="card-logo-am"><img src="img/svg/po.svg" alt=""></div>
                 <div>
-					<h3>My Requests</h3>
+					<h3>Request History</h3>
 				<p class="card-description">Track the status of your access requests</p>
 				
 				</div>
@@ -212,37 +156,20 @@ arrow_forward_ios
 		
     </section>
 		</div>
-		<section id="footer-container"></section>
-
-    <%- include('partials/footer') %>
-	
-	
-</div>	
-	
-
-	
-	
-	            <script src="/js/theme.js"></script>
-	
-	<script>
-	  const profileIcon = document.getElementById("profileIcon");
-  const profilePopup = document.getElementById("profilePopup");
-
-  profileIcon.addEventListener("click", () => {
-    profilePopup.style.display =
-      profilePopup.style.display === "block" ? "none" : "block";
-  });
-
-  // Optional: hide on outside click
-  window.addEventListener("click", (e) => {
-    if (!profileIcon.contains(e.target) && !profilePopup.contains(e.target)) {
-      profilePopup.style.display = "none";
-    }
-  });
-		
-	</script>
-	
 
 
+              <!--End of Content-->
+
+
+</div>
+  <%- include('partials/footer') %>
+</div>
+    <script src="/js/theme.js"></script>
+     <script src="/js/scripts.js"></script>
+  
 </body>
 </html>
+</body>
+</html>
+
+

@@ -40,7 +40,7 @@
         }
 
         .logo-text{
-          color: #fff;
+          color: var(--primary-text);
             font-size: 34px;
 line-height: 1.0625;
 font-weight: 600;
@@ -57,18 +57,23 @@ letter-spacing: -.009em;
 
 
 .heading  {
-  font-size: 64px;
+  font-size: 44px;
 line-height: 1.0625;
 font-weight: 600;
 letter-spacing: -.009em;
 }
 
         .nav-logo img {
-			padding-top: 10px;
-			padding-bottom: 10px;
+			padding-top: 2px;
+			padding-bottom: 2px;
             width: 50px;
             vertical-align: middle;
+            cursor: pointer;
 
+        }
+
+        .cursor {
+            cursor: pointer;
         }
 
 
@@ -212,6 +217,10 @@ vertical-align: middle;
 
 .tagline {
 color: var(--secondary-text); margin-bottom: 2rem; font-size: 1.2rem;
+}
+
+.footer-tagline {
+color: var(--secondary-text); margin-bottom: 2rem; font-size: 1rem;
 }
 
 .darkmode-container i {
@@ -608,6 +617,7 @@ letter-spacing: -0.015em;
 
 .main-con {
 	height: 100vh;
+
 }
 
 .card-description {
@@ -633,6 +643,14 @@ letter-spacing: -0.015em;
 	color: var(--secondary-text);
 }
 
+.title {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 50px;
+  color: var(--primary-text);
+}
+
 .admin-role {
 	background-color: var(--gray-900);
 	color: #fff;
@@ -646,9 +664,7 @@ letter-spacing: -0.015em;
 	right: 0;
 }
 
-.section-bg {
-/*	background-color: var(--secondary-bg); */
-}
+
 
 .hide {
   display: none;
@@ -693,6 +709,10 @@ letter-spacing: -0.015em;
   box-sizing: border-box;
   transition: border-color 0.3s;
 
+    background-color: var(--card-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border);
+
 }
 .yes-form-group input:focus {
   border-color: #007aff;
@@ -731,8 +751,14 @@ letter-spacing: -0.015em;
 .yes-login-button:hover {
   background: linear-gradient(135deg, #005bb5, #003f8a);
 }
-.bottom-note {margin-top: 1rem;
+.bottom-note {
+  margin-top: 1rem;
 	font-size: 13px;
+	color: var(--secondary-text);
+}
+.request-note {
+  margin-top: 1rem;
+
 	color: var(--secondary-text);
 }
 
@@ -765,4 +791,517 @@ letter-spacing: -0.015em;
 }
 .spacer-100 {
   height: 100px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table, th, td {
+  border: 1px solid var(--border);
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+  
+}
+th {
+  background-color: var(--card-bg);
+}
+
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.90;
+
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 10px;
+width: 120px;
+height: 50px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+
+.btn:hover {
+ opacity: 0.9;
+}
+
+
+.btn-sq{
+  width: 40px;
+  height: 40px;
+  background-color: var(--pt3);
+  border: 0px;
+  outline: 0px;
+  cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-del{
+  width: 40px;
+  height: 40px;
+  background-color: var(--gray-800);
+  border: 0px;
+  outline: 0px;
+  border-radius: 4px;
+}
+
+button:hover {
+  opacity: 0.90;
+
+}
+
+.btn-sq i{ 
+  color: white
+
+}
+
+.btn-cancel {
+	display: block;
+	margin: 5px;
+
+  padding: 10px 20px;
+  font-size: 16px;
+		background-color: var(--gray-200);
+}
+
+.cancel {
+
+  background-color: var(--gray-400);
+}
+
+.submit {
+
+  background-color: #048E6D;
+}
+
+
+
+i {
+	vertical-align: middle;
+}
+
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  form input[type="email"]{
+    max-width: 660px;
+    width: 100%;
+      padding-left: 20px;
+    padding-top: 0px;
+    box-sizing: border-box;
+  }
+
+  
+  form input[type="text"] {
+
+       max-width: 660px;
+    width: 100%;
+      padding-left: 20px;
+    padding-top: 0px;
+    box-sizing: border-box;
+
+  }
+
+      input[type="file"]{
+
+       max-width: 660px;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    vertical-align: middle;
+
+    
+  }
+  
+
+
+.input-group {
+  font-size: 1.25rem;
+  position: relative;
+  margin: 15px 0;
+}
+
+.input {
+  all: unset;
+  background-color: var(--card-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border);
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 55px;
+  border: 1px solid var(--border);
+  text-align: left;
+  width: 325px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.label {
+  position: absolute;
+  top: 35%;
+  left: 10px;
+  transform: translateY(-50%);
+
+	font-weight: 700;
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  border-radius: 10px;
+}
+
+.input:focus~.label,
+.input:not(:placeholder-shown)~label {
+  transform: translateY(-120%) scale(0.8);
+  background-color: var(--card-bg);
+    color: var(--primary-text);
+  padding-inline: 0.3rem;
+
+}
+
+ select {
+  border-radius: 30px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 50px;
+  border: 1px solid var(--border);
+  font-size: 16px;
+  background-color: var(--background);
+  appearance: none; /* removes default arrow in some browsers */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px 6px;
+  color: var(--primary-text);
+
+               }
+.text-a {
+  width: 100%;
+  max-width: 660px;
+  min-height: 200px;
+}               
+.container-form {
+
+  min-height: 170vh;
+  margin: 0 auto;
+max-width: 660px;
+  width: 100%;
+}
+
+select {
+  max-width: 660px;
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  font-size: 16px;
+
+
+   background-color: var(--card-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+}
+select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.select {
+  all: unset;
+  color: #3d3d3d;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 55px;
+  text-align: left;
+  width: 325px;
+  font-size: 16px;
+
+ background-color: var(--card-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+}
+
+.select:focus~.label,
+.select:not(:placeholder-shown)~label {
+  transform: translateY(-120%) scale(0.8);
+  background-color: #fff;
+  padding-inline: 0.3rem;
+  color: darkgray;
+}
+
+.select-option {
+	font-size: 18px;
+}
+
+
+
+
+  .error {
+    color: red;
+    text-align: center;
+  }
+
+
+  .div-group {
+	margin: 30px;
+	background-color: var(--gray-50);
+	padding: 20px;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+}
+
+.div-content-group {
+	margin: 30px;
+	
+}
+
+.div-group input {
+  
+	width: 300px;
+	height: 50px;
+	font-size: 18px;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.div-group button {
+	width: 100px;
+	height: 50px;
+	font-size: 18px;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	
+}
+
+form input {
+    background-color: var(--card-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+  padding-left: 10px;
+    padding-right: 10px;
+	height: 50px;
+	font-size: 16px;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+form textarea {
+       background-color: var(--card-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+  padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+	height: 50px;
+	font-size: 16px;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+
+.bottom-note {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--gray-400);
+  text-align: center;
+}
+
+.div-group-btn {
+  margin-top: 20px;
+  background-color: var(--gray-100);
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.tf-description {
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.contentRequestForm label {
+font-weight: 700;
+  font-size: 16px;
+  color: #333;
+
+  margin-bottom: 10px;
+  display: block;
+  text-align: left;
+}
+
+.scdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+/* APP CARD */
+
+
+.app-card {
+  background-color: var(--card-bg);
+  border-radius: 4px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+
+.app-card label {
+font-weight: 300;
+  font-size: 16px;
+ margin-top: 5px;
+  margin-bottom: 5px;
+  display: block;
+  text-align: left;
+
+
+}
+
+
+.app-card__icon img {
+  width: 50px;
+  height: 50px;
+}
+
+
+.app-card__info h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+  text-align: left;
+
+}
+
+.app-card__info p {
+  font-size: 14px;
+  color: #666;
+
+}
+
+.app-title {
+  margin-top: 40px;
+  margin-bottom: 20px;;
+  text-align: left;
+}
+
+.requester-info {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  color: var(--secondary-text);
+}
+
+
+::selection {
+  background: var(--card-bg);
+}
+.radiobox {
+  max-width: 660px;
+  width: 100%;
+  border-radius: 30px;
+}
+
+.radiobox .content {
+  margin-top: 20px;
+}
+.radiobox label.box {
+  background: var(--card-bg);
+  margin-top: 10px;
+  padding: 16px;
+  display: flex;
+  border-radius: 30px;
+color: var(--secondary-text);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+#one:checked ~ label.first,
+#two:checked ~ label.second,
+#three:checked ~ label.third {
+  border-color: var(--pt2);
+  background: var(--card-bg);
+}
+.radiobox label.box:hover {
+    background: var(--wfhighlight);
+}
+.radiobox label.box .circle {
+  height: 22px;
+  width: 22px;
+  background: var(--card-bg);
+  border: 5px solid transparent;
+  display: inline-block;
+  margin-right: 15px;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+  box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.2);
+}
+#one:checked ~ label.first .circle,
+#two:checked ~ label.second .circle,
+#three:checked ~ label.third .circle {
+  border-color: var(--pt2);
+  background: var(--background);
+}
+.radiobox label.box .plan {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.radiobox input[type="radio"] {
+  display: none;
+}
+
+.app-title {
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--primary-text);
+  vertical-align: middle;
+}
+
+.ylogo {
+vertical-align: middle;
+  cursor: pointer;
 }

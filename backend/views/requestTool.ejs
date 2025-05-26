@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>TaskPilot</title>
-      <link rel="stylesheet" href="/css/styles.css" />
-      <link rel="stylesheet" href="/css/o-style.css" />
-      <meta name="description" content="TaskPilot - Tool Access Manager">
-      <meta name="keywords" content="TaskPilot, Task Pilot, TaskPilot, Task Pilot, Tool Access Manager, Tool Access Management">
-      <meta name="author" content="JosephSabana">
-      <meta property="og:image" content="/img/cover.png">
-      <meta property="og:title" content="TaskPilot">
-      <meta property="og:description" content="TaskPilot - Tool Access Manager">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
-      <link href="/css/views.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>YesOnIt! Access Manager</title>
+    <meta name="description" content="YesOnIt - Tool Content Development">
+    <meta name="keywords" content="YesOnIt, YesOnIt, YesOnIt, YesOnIt, Tool Content Development, Tool Access Management">
+    <meta name="author" content="JosephSabana">
+    <meta property="og:image" content="img/cover.png">
+    <meta property="og:title" content="YesOnIt">
+    <meta property="og:description" content="YesOnIt - Tool Content Development">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+    <link href="/css/new-styles.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
       <script>
          function toggleRequestType() {
            var type = document.querySelector('input[name="requestType"]:checked').value;
@@ -27,169 +26,106 @@
       </script>
    </head>
    <body>
-      <!-- hero banner with graphic -->
-      <section class="i-hero">
-         <!-- header with logo and two selects + separators -->
-         <header class="i-site-header ">
-            <div class="i-container header-inner">
-               <div class="ig-logo" onClick="">
-                  <span class="ig-logo-highlight"></span>
+    <div class="main-con">
+     <%- include('partials/header') %>
+<div style="height: 150vh!important;">
+ <section class="section container">
+  <!--Content-->
+     
+             <div class="container-form">
+            <h3 class="subsection-heading"> Access Manager</strong></h3>
+              <h1 class="heading">Submit Access Requests</h1>
+                 <div class="requester-info">
+                  <strong>Requester Name:</strong>
+                  <span><%= user.name %></span>
                </div>
-               <nav class="nav-controls" aria-label="Page navigation">
-                  <details class="dropdown">
-                     <summary>Go to</summary>
-                     <ul>
-                        <li><a href="content/login/login.html">Login</a></li>
-                        <li><a href="content/login/login.html">Login</a></li>
-                        <li><a href="content/login/login.html">Login</a></li>
-                        <li><a href="content/login/login.html">Login</a></li>
-                        <div class="spacer-20"></div>
-                     </ul>
-                  </details>
-               </nav>
-            </div>
-            <div class="darkmode-container">
-              <label class="mode-switch">
-            <input type="checkbox" id="darkModeToggle" />
-            <span class="slider"></span>
-           </label>
-           
-           <a href="/logout" class="logout-button">
-             <i class="material-icons-outlined">logout</i>
-             Logout
-           </a>
-              </div>
-            <!--
-               <div class="theme-switcher" role="radiogroup" aria-label="Color theme">
-                 <button data-theme-value="light" aria-pressed="false">Light</button>
-                 <button data-theme-value="dark"  aria-pressed="false">Dark</button>
-                 <button data-theme-value="auto"  aria-pressed="true">Auto</button>
-               </div>
-               -->
-         </header>
-         <div class="i-container hero-content">
-            <div class="spacer-100"></div>
-            <div class="i-hero-text">
-               <div class="spacer-100"></div>
-               <div class="header-logo">
-                  <a href="/home" class="no-dec">
-                     <div class="ig-logo" onClick="">
-                        TaskPilot
-                        <span class="ig-text">Tool Access Manager</span>
-                     </div>
-                  </a>
-               </div>
-               <h1>New Requests</h1>
-            </div>
-            <div class="i-hero-graphic">
-               <!-- Replace with SVG/PNG -->
-               <img src="/img/cover.svg" alt="" aria-hidden="true">
-            </div>
-         </div>
-         <div class="spacer-100"></div>
-         <div class="spacer-100"></div>
-      </section>
-      <!-- main content card -->
-      <main class="i-container">
-         <div class="i-container-card" align="center">
-            <h1>Submit Access Requests</h1>
+
+
+          
             <% if (error) { %>
             <div style="color: red; font-weight: bold;"><%= error %></div>
             <% } %>
             <% if (success) { %>
             <div style="color: green; font-weight: bold;"><%= success %></div>
             <% } %>
-            <form action="/submitToolRequest" method="POST">
-               <div class="tr wrapper">
-                  <input type="radio" name="requestType" id="option-1" value="self"  onchange="toggleRequestType()" checked>
-                  <input type="radio" name="requestType"  id="option-2" value="someone_else" onchange="toggleRequestType()">
-                  <label for="option-1" class="option option-1">
-                     <div class="dot"></div>
-                     <span> Request for myself</span>
-                  </label>
-                  <label for="option-2" class="option option-2">
-                     <div class="dot"></div>
-                     <span> Request for someone else</span>
-                  </label>
-               </div>
-               <div class="100"></div>
-               <div>
-                  <strong>Requester Name:</strong>
-                  <span><%= user.name %></span>
-               </div>
-               <br>
+            <form action="/submitToolRequest" method="POST" class="contentRequestForm">
+                  
+             <div class="div-content-group ">
+ <div class="radiobox">
+      <div class="content">
+        <input type="radio" name="requestType" id="one" value="self" checked  onchange="toggleRequestType()"  />
+        <input type="radio" name="requestType" id="two" value="someone_else" onchange="toggleRequestType()" />
+
+        <label for="one" class="box first">
+          <div class="plan">
+            <span class="circle"></span>
+            <span class="yearly">Request for myself</span>
+          </div>
+          <span class="price"></span>
+        </label>
+        <label for="two" class="box second">
+          <div class="plan">
+            <span class="circle"></span>
+            <span class="yearly">Request for someone else</span>
+          </div>
+          <span class="price"></span>
+        </label>
+
+      </div>
+    </div>
+</div>
+
+
                <div class="div-content-group ">
                   <label>Select Tool:</label>
-                  <select name="toolName" required>
+                  <select class="select-dropdown" name="toolName" required>
                      <% tools.forEach(tool => { %>
                      <option value="<%= tool.toolName %>"><%= tool.toolName %></option>
                      <% }); %>
                   </select>
                </div>
-               <br>
+
                <div id="someone-else-fields" style="display: none;">
                   <!--  <input type="text" name="employeeId" placeholder="Employee ID"><br><br>
                      <input type="email" name="employeeEmail" placeholder="Employee Email"><br><br> -->
-                  <div class="input-group">
-                     <input class="input" type="text" name="employeeId" >
-                     <label class="label" for="employeeId">Employee ID/</label>
+                  <div class="div-content-group">
+                     <label  for="employeeId">Employee ID</label>
+                     <input  type="text" name="employeeId" >
                   </div>
-                  <div class="input-group">
-                     <input class="input" type="email" name="employeeEmail" >
-                     <label class="label" for="employeeEmail">Employee Email</label>
+                  <div class="div-content-group">
+                            <label  for="employeeEmail">Employee Email</label>
+              
+                     <input  type="email" name="employeeEmail" >
                   </div>
                </div>
-               <div class="input-group">
-                  <input class="input" type="email" name="approverEmail" >
-                  <label class="label" for="approverEmail">Approver (Manager)</label>
+
+               
+
+               <div class="div-content-group">
+                    <label for="approverEmail">Approver (Manager)</label>
+                  <input  type="email" name="approverEmail" >
+                
                </div>
-               <div class="input-group">
-                  <textarea name="justification" placeholder="Justification" required></textarea>
+               <div class="div-content-group">
+                   <label for="Justification">Justification</label>
+                  <textarea class="text-a" name="justification" required></textarea>
                </div>
-               <button class="btn-cancel" onclick="location.href='/home';">Go Back</button>  <button type="submit">Submit Request</button> 
-            </form>
+                <div class="div-content-group" align="center">
+               <button class="btn cancel" onclick="location.href='/home';">Go Back</button>  <button class="btn submit" type="submit">Submit</button> 
+            </div></form>
             <br>
          </div>
-      </main>
-      <!-- Footer Section -->
-      <footer class="footer" >
-         <div class="footer-content" >
-            <!-- Project Information -->
-            <div style="" class="f-col-1">
-               <p><img src="/img/logo.svg" alt=""></p>
-               <ul>
-                  <li><strong>TaskPilot - Tool Access Manager</strong></li>
-                  <li class="">Designed and Developed by: Joseph Sabana, Student, SIT727</li>
-               </ul>
-            </div>
-         </div>
-         <!-- Bottom Legal Line -->
-         <!-- Bottom Legal Footer Line -->
-         <div class="btm-legal" >
-            <div class="btm-text" >
-               <!-- Left side: Legal Text and Links -->
-               <div class="btm-text-left" >
-                  <span>&copy; 2025 All rights reserved.</span>
-                  <div class="hide">
-                     <a href="#" style="color: #999; text-decoration: none;">Privacy Policy</a>
-                     <span>|</span>
-                     <a href="#" style="color: #999; text-decoration: none;">Terms of Use</a>
-                     <span>|</span>
-                     <a href="#" style="color: #999; text-decoration: none;">Sales and Refunds</a>
-                     <span>|</span>
-                     <a href="#" style="color: #999; text-decoration: none;">Legal</a>
-                     <span>|</span>
-                     <a href="#" style="color: #999; text-decoration: none;">Site Map</a>
-                  </div>
-               </div>
-               <!-- Right side: Country -->
-               <div class="btm-text-right" >
-                  <span><img src="/img/au.svg" width="20px" alt=""> Australia</span>
-               </div>
-            </div>
-         </div>
-         <p class="latestupdate" id="latestupdate"></p>
-      </footer>
-      <script src="/js/theme.js"></script>
-   </body>
+  
+
+
+              <!--End of Content-->
+</section>
+
+</div>
+  <%- include('partials/footer') %>
+</div>
+    <script src="/js/theme.js"></script>
+     <script src="/js/scripts.js"></script>
+  
+</body>
 </html>

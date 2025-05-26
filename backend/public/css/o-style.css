@@ -450,11 +450,6 @@ p {
             margin: 15px 0 0 0;
         }
 
-.list-group a {
-
-}
-
-
 .list-group-item {
             display: flex;
             align-items: center;  /* Align icon and text vertically */
@@ -640,8 +635,6 @@ p {
 	
 	 /*   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Smooth fade-in effect */
 }
-.w-subtopic:hover {
-}
 
 .radius-top-only {
 	border-radius: 4px 4px 0 0;
@@ -710,7 +703,7 @@ p {
 
 ol.w-list {
  list-style-type: none;
- list-style-type: decimal !ie; 
+ list-style-type: decimal;
  margin: 0;
  margin-left: 0;
  padding: 0; 
@@ -939,7 +932,7 @@ ol.w-list.start2 {
 	height: 30px;
 	margin-top: 35px;
 	margin-bottom: 35px;
-	color: white);
+	color: white;
 	text-align: left;
 
 }
@@ -1082,7 +1075,7 @@ font-family: Arial, "sans serif";
 .step {
 	display: inline;
 	padding: 8px 10px;
-	border: 0;s
+	border: 0;
 	margin-right: 5px;
 	background-color: var(--offwhite);
 	border-top-left-radius: 4px;
@@ -1279,9 +1272,7 @@ video {
 	color: #fff;*/
 }
 
-.btn2:hover {
-   
-}
+
 
 .w-nav-btn {
 	margin: 0;
@@ -1311,10 +1302,6 @@ a {
 
 .controls a {
 	color: var(--gray-200);
-}
-
-.controls a:hover {
-
 }
 
 .radius-left {
@@ -1395,26 +1382,6 @@ right: 0px;
   flex: 15%;
 	text-align: right;
 	padding-top: 5px;
-}
-
-
-
-.btn-back {
-/*	position: absolute;
-	right: 0px;
-	top: 0px;
-	height: 55px;
-	line-height: 35px;
-	
-	background: transparent;
-	color: #636363;
-	border-radius: 0 0 8px 8px!important;
-	background-color: var(--gray5);
-	
-	*/	
-
-	
-	
 }
 
 .w-list-ins-desc {
@@ -2099,11 +2066,6 @@ box-sizing: border-box;
 	padding: 40px 20px 20px 20px;
 }
 
-.a-link a {
-	
-	
-}
-
 .colcon {
   display: flex;
 }
@@ -2178,10 +2140,6 @@ box-sizing: border-box;
 }
 
 
-.text-secondary {
-
-}
-
 .nav-fixed {
 	position: fixed;
 	width: 100%;
@@ -2255,13 +2213,6 @@ box-sizing: border-box;
 
 	
 }
-
-.icon-user {
-   
-
-}
-
-
 
 
 
@@ -2424,50 +2375,9 @@ margin-top: 5px;
 	margin: 8px 0 0 0;
 }
 
-.finance {
-	font-size: 25px;
-	font-weight: 700;
-}
-
-.header-y {
-	 
-
-	margin-bottom: 0px;
-	margin-top: 50px;
-	
-		font-weight: 700;
-		font-size: 25pt;
-	color: #fff;
-	line-spacing: -0.078rem;
-	
-
-}
-
-.header-y p {
-
-}
-
-
-
-
-
-.myob-description {
-	font-size: 16px;
-	margin-top: 0px;
-	width: 90%;
-	color: #fff;
-	
-}
 
 .p-border-bottom {
 	border-bottom: 1px solid var(--gray5);
-}
-
-.glass {
-
-	    background-color: rgba(0,0,0,0.5);	
-	 backdrop-filter: blur(2px);
-
 }
 
 .announcement {
@@ -2679,19 +2589,6 @@ margin-top: 5px;
              /* Bootstrap's text-secondary color */
         }
 
-.myob-logo-sticky {
-	/*
-	background-image: url("../img/MYOB-Acumatica-Logo.png");
-	background-position: top left;
-	background-size: 90px;
-	background-repeat: no-repeat;
-	width: 100px;
-	height: 30px;
-		vertical-align: middle;
-	display: inline-flex;
-	justify-content: center;
-	align-content: center;*/
-}
 
 .url {
 	background-color: var(--gray-200);
@@ -2699,10 +2596,6 @@ margin-top: 5px;
 	padding-right: 8px;
 	border-radius: 4px;
 	display: inline-flex;
-}
-
-.url a {
-	
 }
 
 .urlhttps {
@@ -2978,15 +2871,6 @@ margin: 0 auto;
 	border-radius: 15px;
 }
 
-
-
-.imgmodal-content-main {
-
-
-	
-}
-
-
 .imgmodal-content-main img {
 
 	width: 60%;
@@ -3063,9 +2947,6 @@ margin: 0 auto;
 	
 }
 
-.hideonmob {
-	
-}
 
 .bg-myob-highlight {
 	background-color: var(--pgray1);

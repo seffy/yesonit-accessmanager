@@ -15,7 +15,7 @@ COPY . .
 # ENV PORT=4000
 
 # Expose port
-EXPOSE 4000
+EXPOSE 3000
 
 # Start the app
 CMD ["node", "app.js"]

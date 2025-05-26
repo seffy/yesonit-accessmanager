@@ -1,0 +1,40 @@
+<nav class="nav" >
+   <div class="nav-logo" onclick="location.href='/home';">
+      <img src="/img/logo-sym-2t.svg"  alt="" id="logo" class="ylogo"><span class="app-title">Access Manager</span>
+   </div>
+   <div class="profile-container">
+      <div class="darkmode-container">
+         <label class="mode-switch">
+         <input type="checkbox" id="darkModeToggle" />
+         <span class="slider"></span>
+         </label>
+      </div>
+      <img src="/img/profilepic.png" alt="Avatar" class="profile-icon" id="profileIcon" onClick="toggle_visibility('profilePopup', this)">
+      <div class="profile-popup" id="profilePopup">
+         <div class="profile-header">
+            <img src="/img/profilepic.png" alt="User Avatar" class="avatar">
+            <div>
+               <div class="name"><%= user.name %></div>
+               <div class="email"><%= user.email %></div>
+            </div>
+         </div>
+         <div class="divider"></div>
+         <div class="menu-item"><i class="material-icons-outlined">
+            settings
+            </i> Settings
+         </div>
+         <div class="menu-item">
+            <a href="#"><i class="material-icons-outlined">
+            feedback
+            </i> Send Feedback</a>
+         </div>
+         <div class="divider"></div>
+         <a href="/logout" class="no-dec">
+            <div class="menu-item signout">
+               <i class="material-icons-outlined">logout</i>
+               Logout 
+            </div>
+         </a>
+      </div>
+   </div>
+</nav>
