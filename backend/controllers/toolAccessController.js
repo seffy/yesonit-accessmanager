@@ -30,18 +30,20 @@ exports.submitToolAccessRequest = async (req, res) => {
         success: null
       });
     }
-
-    const newRequest = new ToolAccessRequest({
-      requestType,
-      requesterName: req.session.user.name,
-      toolName,
-      employeeId: requestType === 'someone_else' ? employeeId : undefined,
-      employeeEmail: requestType === 'someone_else' ? employeeEmail : undefined,
-      approverEmail,
-      justification
-    });
-
-    await newRequest.save();
+ const submittedBy = req.session.user.email;   
+const requesterName = req.session.user.name;
+const newRequest = new ToolAccessRequest({
+  requestType,
+  requesterName,
+  toolName,
+  employeeId,
+  employeeEmail,
+  approverEmail,
+  justification,
+  submittedBy: req.session.user.email, // ✅ Critical for filtering
+  submittedAt: new Date()
+});
+await newRequest.save();
 
     const tools = await Tool.find();
     res.render('requestTool', {

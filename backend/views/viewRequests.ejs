@@ -24,7 +24,9 @@
   <!--Content-->
 	 
 <div class="">
-      <h2> My Access Request Submissions</h2>
+
+              <h1 class="heading">My Access Request Submissions</h1>
+              
   <table cellpadding="8" cellspacing="0">
     <thead>
       <tr>
@@ -53,7 +55,7 @@
         <td><%= request.justification %></td>
         <td><%= request.submittedAt.toLocaleString() %></td>
         <td><!-- New Update button -->
-  <a href="/requests/update/<%= request.requestId %>" class="btn btn-primary" title="Update Status" style="margin-left: 5px;">
+  <a href="/requests/update/<%= request.requestId %>" class="btn " title="Update Status" style="margin-left: 5px;">
     <i class="fas fa-sync-alt"></i> Update
   </a>
 </td>
@@ -63,7 +65,9 @@
   </table>
 
 </div>
-   
+    <div class="div-content-group" align="center">
+               <button class="btn cancel" onclick="location.href='/home';">Go Back</button> 
+            </div>
  <!--End of Content-->
 </section>
 

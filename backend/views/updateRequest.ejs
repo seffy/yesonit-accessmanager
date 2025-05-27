@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <h3>Edit Tool Access Request</h3>
+
+  <form action="/requests/update/<%= request._id %>" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Tool Name</label>
+      <select class="form-control" name="toolName" required>
+        <% tools.forEach(tool => { %>
+          <option value="<%= tool.name %>" <%= request.toolName === tool.name ? 'selected' : '' %>><%= tool.name %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Justification</label>
+      <textarea class="form-control" name="justification" rows="3" required><%= request.justification %></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Approver Email</label>
+      <input type="email" name="approverEmail" class="form-control" value="<%= request.approverEmail %>" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Update Request</button>
+    <a href="/home" class="btn btn-secondary ms-2">Cancel</a>
+  </form>
+</div>
+
+<%- include('partials/footer') %>

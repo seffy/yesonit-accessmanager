@@ -1,10 +1,7 @@
-// models / ToolAccessRequest.js
-
 const mongoose = require('mongoose');
 const Counter = require('./Counter');
 
 const toolAccessRequestSchema = new mongoose.Schema({
-  requestId: { type: Number, unique: true },
   requestType: { type: String, enum: ['self', 'someone_else'], required: true },
   requesterName: { type: String, required: true },
   toolName: { type: String, required: true },
@@ -12,7 +9,9 @@ const toolAccessRequestSchema = new mongoose.Schema({
   employeeEmail: { type: String },
   approverEmail: { type: String, required: true },
   justification: { type: String, required: true },
-  submittedAt: { type: Date, default: Date.now }
+  submittedBy: { type: String, required: true }, // ✅ Needed for filtering
+  submittedAt: { type: Date, default: Date.now },
+  requestId: { type: Number, unique: true }
 });
 
 // Auto increment requestId before saving
