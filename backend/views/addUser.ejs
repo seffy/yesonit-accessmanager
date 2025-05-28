@@ -18,7 +18,7 @@
   <body>
     <div class="main-con">
     <%- include('partials/header') %>
-    <div style="height: 150vh!important;">
+    <div>
       <section class="section container">
         <!--Content-->
         <div class="container-form">
@@ -47,11 +47,24 @@
            
             </div>
             <div class="div-content-group">
-               <label for="department">Department</label>
-              <input type="department" name="department" required >
+  
+  <label for="department">Department</label>
+  <select class="form-control" name="department" id="department" required>
+    <option value="">Select Department</option>
+    <% departments.forEach(dep => { %>
+      <option value="<%= dep.name %>"><%= dep.name %></option>
+    <% }) %>
+  </select>
+
+               
+
+
+
+
               
             </div>
             <div class="div-content-group">
+                     <label for="accesslevel">Access Label</label>
               <select name="accessLevel" required>
                 <option value="">Select Access Level</option>
                 <option value="Level 1">Level 1</option>
@@ -70,11 +83,11 @@
           <!--End of Content-->
          </div>
       </section>
-    
+     <%- include('partials/footer') %>
    
+    </div>      
     </div>
-    </div>
-       <%- include('partials/footer') %>
+
     <script src="/js/theme.js"></script>
     <script src="/js/scripts.js"></script>
   </body>

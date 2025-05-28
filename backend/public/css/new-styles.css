@@ -798,6 +798,7 @@ letter-spacing: -0.015em;
 table {
   border-collapse: collapse;
   width: 100%;
+  overflow: auto;
 }
 table, th, td {
   border: 1px solid var(--border);
@@ -839,6 +840,7 @@ height: 50px;
   border-radius: 30px;
   font-size: 16px;
 }
+
 
 
 .btn:hover {
@@ -894,6 +896,43 @@ button:hover {
   background-color: #048E6D;
 }
 
+.btn-update-icon {
+width: 30px;
+height: 30px;
+  background-color: var(--pt2);
+  border: 0px;
+  outline: 0px;
+  padding: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 2px;
+
+}
+
+i {
+  vertical-align: middle;
+}
+
+
+.btn-delete-icon {
+width: 30px;
+height: 30px;
+  background-color: var(--gray-900);
+  border: 0px;
+  outline: 0px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+    margin: 2px;
+
+}
+
+
+
 
 
 i {
@@ -913,6 +952,15 @@ i {
   }
   
   form input[type="email"]{
+    max-width: 660px;
+    width: 100%;
+      padding-left: 20px;
+    padding-top: 0px;
+    box-sizing: border-box;
+  }
+
+    
+  form input[type="password"]{
     max-width: 660px;
     width: 100%;
       padding-left: 20px;
@@ -1305,4 +1353,9 @@ color: var(--secondary-text);
 .ylogo {
 vertical-align: middle;
   cursor: pointer;
+}
+
+.div-content-group label {
+	margin-bottom: 15px!important;
+	
 }

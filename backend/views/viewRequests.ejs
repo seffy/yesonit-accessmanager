@@ -19,7 +19,7 @@
    <body>
     <div class="main-con">
      <%- include('partials/header') %>
-<div style="height: 150vh!important;">
+<div style="min-height: 150vh!important;">
  <section class="section container">
   <!--Content-->
 	 
@@ -55,6 +55,7 @@
         <td><%= request.justification %></td>
         <td><%= request.submittedAt.toLocaleString() %></td>
         <td><!-- New Update button -->
+          
   <a href="/requests/update/<%= request.requestId %>" class="btn " title="Update Status" style="margin-left: 5px;">
     <i class="fas fa-sync-alt"></i> Update
   </a>
@@ -63,17 +64,19 @@
       <% }) %>
     </tbody>
   </table>
-
-</div>
     <div class="div-content-group" align="center">
                <button class="btn cancel" onclick="location.href='/home';">Go Back</button> 
             </div>
+</div>
+
  <!--End of Content-->
 </section>
 
 </div>
   <%- include('partials/footer') %>
 </div>
+
+
     <script src="/js/theme.js"></script>
      <script src="/js/scripts.js"></script>
   

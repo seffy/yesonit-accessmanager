@@ -59,6 +59,9 @@ app.use('/', toolRoutes);
 const userRoutes = require('./routes/userRoutes');
 app.use('/', userRoutes);
 
+const departmentRoutes = require('./routes/departmentRoutes');
+app.use('/', departmentRoutes);
+
 const requestRoutes = require('./routes/requestRoutes'); // ✅ adjust path if needed
 app.use('/', requestRoutes);
 

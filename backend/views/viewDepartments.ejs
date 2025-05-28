@@ -22,44 +22,46 @@
       <section class="section container">
         <!--Content-->
         <div class="container-form">
-          <h1 class="heading">All Registered Users</h1>
+          <h1 class="heading">Manage Departments</h1>
+        
 
-  <% if (users && users.length > 0) { %>
-    <table class="table table-striped mt-4">
-      <thead class="table-dark">
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Department</th>
-          <th>Access Level</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% users.forEach(user => { %>
-          <tr>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
-            <td><%= user.department %></td>
-            <td><%= user.accessLevel %></td>
-            <td>
+<% if (error) { %>
+  <div class="alert alert-danger"><%= error %></div>
+<% } %>
+<% if (success) { %>
+  <div class="alert alert-success"><%= success %></div>
+<% } %>
 
-              <button class="btn-update-icon" title="Update" onclick="location.href='/users/update/<%= user._id %>'"><i class="material-icons-outlined">edit_note</i></button>
+<form method="POST" action="/departments/add" class="mb-3 d-flex">
+        <div class="div-content-group" align="left">
+            <label for="name">Add Department</label>
+  <input type="text" name="name" class="form-control me-2" placeholder="Enter Department" required />
+  <button type="submit" class="btn submit">Add</button>
+  </div>
+</form>
 
-              <form action="/users/delete/<%= user._id %>" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this user?');">
-                <button type="submit" class="btn-delete-icon"><i class="material-icons-outlined">delete</i></button>
-              </form>
-            </td>
-          </tr>
-        <% }) %>
-      </tbody>
-    </table>
-  <% } else { %>
-    <div class="alert alert-info">No users found.</div>
-  <% } %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Department Name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% departments.forEach(dep => { %>
+      <tr>
+        <td><%= dep.name %></td>
+        <td>
+          <form action="/departments/delete/<%= dep._id %>" method="POST" onsubmit="return confirm('Delete this department?');">
 
-  <a href="/home" class="btn btn-secondary mt-3">Back to Home</a>
-</div>
+              <button type="submit" class="btn-delete-icon" title="Delete"><i class="material-icons-outlined">delete</i></button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
 
 
  <!--End of Content-->

@@ -9,7 +9,11 @@ router.get('/add-user', userController.showAddUserPage);
 // Handle Add User Form Submission
 router.post('/create-user', userController.addUser);
 
+// Show update form
+router.get('/users/update/:id', userController.showUpdateUserForm);
 
+// Handle form submission
+router.post('/users/update/:id', userController.updateUser);
 
 router.get('/users/manage', async (req, res) => {
   try {
