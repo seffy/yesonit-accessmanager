@@ -39,6 +39,7 @@
         <th>Approver Email</th>
         <th>Justification</th>
         <th>Submitted At</th>
+                <th>Status</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -54,11 +55,18 @@
         <td><%= request.approverEmail %></td>
         <td><%= request.justification %></td>
         <td><%= request.submittedAt.toLocaleString() %></td>
+          <td><%= request.status || 'Pending' %></td>
         <td><!-- New Update button -->
           
-  <a href="/requests/update/<%= request.requestId %>" class="btn " title="Update Status" style="margin-left: 5px;">
-    <i class="fas fa-sync-alt"></i> Update
-  </a>
+ <button class="btn-update-icon" title="Update" onclick="location.href='/requests/update/<%= request._id %>'"><i class="material-icons-outlined">edit_note</i></button>
+
+
+           <form action="/requests/delete/<%= request._id %>" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this request?');">
+  <button type="submit" class="btn-delete-icon" title="Delete"><i class="material-icons-outlined">
+delete
+  </i></button>
+</form>
+
 </td>
       </tr>
       <% }) %>

@@ -27,7 +27,7 @@
 <div class="container-form">
   <h1 class="heading">Edit Tool Access Request</h1>
 
-  <form action="/requests/update/<%= request._id %>" method="POST">
+  <form action="/requests/update/<%= request._id %>" method="POST" id="updateRequestForm">
 
 
 
@@ -42,7 +42,7 @@
 
    <div class="div-content-group">
       <label>Justification</label>
-      <textarea class="form-control" name="justification" rows="3" required><%= request.justification %></textarea>
+      <textarea class="text-a"  name="justification" rows="3" required><%= request.justification %></textarea>
     </div>
 
     <div class="div-content-group">
@@ -52,15 +52,17 @@
 
 
 
-     <div align="center" class="spacer-100"> 
-      <div class="spacer-100"></div> 
-      <button class="btn cancel" onclick="location.href='/home';">Go Back</button>  <button class="btn submit"  type="submit">Update</button>
-  </div>
-
+    
 
 
 
   </form>
+
+   <div align="center" class="spacer-100"> 
+      <div class="spacer-100"></div> 
+      <button class="btn cancel" form="updateRequestForm" onclick="location.href='/home';">Go Back</button>  <button class="btn submit"  type="submit">Update</button>
+  </div>
+
 </div>
 
 
