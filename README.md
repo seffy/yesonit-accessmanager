@@ -67,52 +67,60 @@ This tool is ideal for:
 ```
 yesonit-accessmanager
 ├─ README.md
-├─ backend
-│  ├─ .dockerignore
-│  ├─ Dockerfile
-│  ├─ app.js
-│  ├─ controllers
-│  │  ├─ authController.js
-│  │  ├─ homeController.js
-│  │  ├─ toolAccessController.js
-│  │  ├─ toolController.js
-│  │  └─ userController.js
-│  ├─ models
-│  │  ├─ Counter.js
-│  │  ├─ Tool.js
-│  │  ├─ ToolAccessRequest.js
-│  │  └─ User.js
-│  ├─ package-lock.json
-│  ├─ package.json
-│  ├─ public
-│  │  ├─ css
-│  │  │  ├─ o-style.css
-│  │  │  ├─ styles.css
-│  │  │  ├─ views.css
-│  │  │  └─ workflow.css
-│  │  ├─ img
-│  │  └─ js
-│  │     └─ theme.js
-│  ├─ routes
-│  │  ├─ authRoutes.js
-│  │  ├─ homeRoutes.js
-│  │  ├─ toolAccessRoutes.js
-│  │  ├─ toolRoutes.js
-│  │  └─ userRoutes.js
-│  ├─ seed.js
-│  └─ views
-│     ├─ addTool.ejs
-│     ├─ addUser.ejs
-│     ├─ home.ejs
-│     ├─ login.ejs
-│     ├─ requestTool.ejs
-│     └─ viewRequests.ejs
-├─ k8s
-│  ├─ configmap.yaml
-│  ├─ deployment.yaml
-│  ├─ hpa.yaml
-│  ├─ secret.yaml
-│  └─ service.yaml
+└─ app
+   ├─ .dockerignore
+   ├─ Dockerfile
+   ├─ app.js
+   ├─ controllers
+   │  ├─ authController.js
+   │  ├─ departmentController.js
+   │  ├─ homeController.js
+   │  ├─ landingController.js
+   │  ├─ toolAccessController.js
+   │  ├─ toolController.js
+   │  └─ userController.js
+   ├─ models
+   │  ├─ Counter.js
+   │  ├─ Department.js
+   │  ├─ Tool.js
+   │  ├─ ToolAccessRequest.js
+   │  └─ User.js
+   ├─ package-lock.json
+   ├─ package.json
+   ├─ public
+   │  ├─ css
+   │  ├─ img
+   │  └─ js
+   │     ├─ scripts.js
+   │     └─ theme.js
+   ├─ routes
+   │  ├─ authRoutes.js
+   │  ├─ departmentRoutes.js
+   │  ├─ homeRoutes.js
+   │  ├─ requestRoutes.js
+   │  ├─ testLoginRoutes.js
+   │  ├─ toolAccessRoutes.js
+   │  ├─ toolRoutes.js
+   │  └─ userRoutes.js
+   ├─ seed.js
+   └─ views
+      ├─ ViewAllUsers.ejs
+      ├─ addTool.ejs
+      ├─ addUser.ejs
+      ├─ home.ejs
+      ├─ login copy.htm
+      ├─ login.ejs
+      ├─ logintest.ejs
+      ├─ partials
+      │  ├─ footer.ejs
+      │  └─ header.ejs
+      ├─ requestTool.ejs
+      ├─ updateRequest.ejs
+      ├─ updateUser.ejs
+      ├─ viewDepartments.ejs
+      ├─ viewMyRequests.ejs
+      ├─ viewRequests.ejs
+      └─ yesonit.ejs
 
 ```
 
@@ -131,7 +139,7 @@ yesonit-accessmanager
 ## 🚀 How to Run Locally
 
 1. Clone the repository
-2. Navigate to the `backend/` folder
+2. Navigate to the `app/` folder
 3. Install dependencies:
 
 ```bash
@@ -157,276 +165,69 @@ http://localhost:3000/login
 
 ---
 
-## 🐳 How to Build and Run with Docker
 
-1. Navigate to `backend/` folder
-2. Build the Docker image:
 
-```bash
-docker build -t yesonit-accessmanager .
-```
+## 🔁 Kubernetes Redeployment Steps
 
-3. Run the Docker container:
+### ✅ 1. [Optional] Clean Up Previous Deployment
 
 ```bash
-docker run -p 3000:3000 yesonit-accessmanager
-```
-
-4. Access the app at:
-http://localhost:3000/login
-
----
-
-## ☸️ How to Deploy with Kubernetes
-
-1. Push your Docker image to DockerHub:
-
-```bash
-docker tag yesonit-accessmanager josabana/yesonit-accessmanager
-docker push josabana/yesonit-accessmanager
-```
-
-## Deployment Steps
-
-### 1. Create Secret
-
-Encode credentials:
-
-```bash
-echo -n "your_mongo_uri" | base64
-echo -n "your_session_secret" | base64
-```
-
-Create `k8s/secret.yaml`:
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: yesonit-secrets
-type: Opaque
-data:
-  MONGO_URI: <base64_mongo_uri>
-  SESSION_SECRET: <base64_session_secret>
-```
-
-Apply:
-
-```bash
-kubectl apply -f k8s/secret.yaml
+kubectl delete deployment yesonit-accessmanager-deployment
+kubectl delete service yesonit-accessmanager-service
+kubectl delete configmap yesonit-accessmanager-config
+kubectl delete secret yesonit-accessmanager-secret
+kubectl delete hpa yesonit-accessmanager-hpa
 ```
 
 ---
 
-### 2. Create ConfigMap (Optional)
+### 🐳 2. Rebuild and Push Docker Image
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: yesonit-config
-data:
-  PORT: "3000"
-```
-
-Apply:
+> Only if the code has changed or needs to be rebuilt
 
 ```bash
-kubectl apply -f k8s/configmap.yaml
+cd backend
+docker build -t josabana/yesonit-accessmanager:latest .
+docker push josabana/yesonit-accessmanager:latest
 ```
 
 ---
 
-### 3. Deploy Application
-
-Create `k8s/deployment.yaml`:
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: yesonit-accessmanager-deployment
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: yesonit-accessmanager
-  template:
-    metadata:
-      labels:
-        app: yesonit-accessmanager
-    spec:
-      containers:
-      - name: yesonit-accessmanager
-        image: yesonit-accessmanager:latest
-        ports:
-        - containerPort: 3000
-        envFrom:
-        - secretRef:
-            name: yesonit-secrets
-        - configMapRef:
-            name: yesonit-config
-        imagePullPolicy: IfNotPresent
-```
-
-Apply:
+### ⚙️ 3. Apply Kubernetes YAML Files
 
 ```bash
-kubectl apply -f k8s/deployment.yaml
+cd ../k8s
+kubectl apply -f secret.yaml
+kubectl apply -f configmap.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f hpa.yaml 
 ```
 
 ---
 
-### 4. Expose Service
-
-Create `k8s/service.yaml`:
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: yesonit-accessmanager-service
-spec:
-  type: NodePort
-  selector:
-    app: yesonit-accessmanager
-  ports:
-    - protocol: TCP
-      port: 3000
-      targetPort: 3000
-      nodePort: 30008
-```
-
-Apply:
-
-```bash
-kubectl apply -f k8s/service.yaml
-```
-
-Access at: [http://localhost:30008](http://localhost:30008)
-
----
-
-### 5. Set up HPA (Auto-Scaling)
-
-Create `k8s/hpa.yaml`:
-
-```yaml
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: yesonit-accessmanager-hpa
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: yesonit-accessmanager-deployment
-  minReplicas: 1
-  maxReplicas: 3
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
-```
-
-Apply:
-
-```bash
-kubectl apply -f k8s/hpa.yaml
-```
-
----
-
-## Kubernetes Verification Commands
+### 🔍 4. Verify Deployment Status
 
 ```bash
 kubectl get pods
 kubectl get deployments
 kubectl get services
 kubectl get hpa
-kubectl logs <pod-name>
-```
-
-✅ Ensure all pods are Running.  
-✅ NodePort exposed at 30008.  
-✅ HPA status active.
-
----
-
-
-
-# yesonit Access Manager – Updating Workflow (After Local Code Changes)
-
-## 📋 When you make local code changes
-
-If you modify your app code (Node.js backend, EJS frontend, routes, controllers, etc), you must:
-
-1. Rebuild your Docker image
-2. Push it to Docker Hub
-3. Delete the Kubernetes Pod to force pulling the new image
-
----
-
-## 🛠 Step 1: Rebuild Docker Image
-
-```bash
-docker build -t yesonit-accessmanager .
-```
-
-Or build directly tagged for Docker Hub:
-
-```bash
-docker build -t josabana/yesonit-accessmanager .
 ```
 
 ---
 
-## 🛠 Step 2: Tag the Docker Image (if needed)
+### 🌐 5. Access the App in Browser
 
-If your image was built without Docker Hub name, tag it:
-
+If using `NodePort`, access via:
 ```bash
-docker tag yesonit-accessmanager josabana/yesonit-accessmanager
+http://localhost:<your-node-port>   # Example: http://localhost:30008
 ```
 
-✅ This tells Docker to point to your Docker Hub repo.
-
----
-
-## 🛠 Step 3: Push to Docker Hub
-
+To get the port:
 ```bash
-docker push josabana/yesonit-accessmanager
+kubectl get service yesonit-accessmanager-service
 ```
-
-✅ Your latest code is now available on Docker Hub.
-
----
-
-## 🛠 Step 4: Delete Old Kubernetes Pod
-
-Find your current pods:
-
-```bash
-kubectl get pods
-```
-
-Then delete your running pod:
-
-```bash
-kubectl delete pod <your-pod-name>
-```
-
-Example:
-
-```bash
-kubectl delete pod yesonit-accessmanager-deployment-xxx-xxxxx
-```
-
-✅ Kubernetes Deployment will automatically create a new pod using your updated image.
 
 ---
 
@@ -452,7 +253,6 @@ containers:
 ✅ This ensures Kubernetes always pulls the latest image without needing manual pod deletion.
 
 ---
-
 
 # 📋 Kubernetes Artifacts Explanation
 
