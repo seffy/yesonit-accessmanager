@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YesOnIt!</title>
+  <meta name="description" content="YesOnIt - Tool Access Manager">
+  <meta name="keywords" content="YesOnIt, YesOnIt, YesOnIt, YesOnIt, Tool Access Manager, Tool Access Management">
+  <meta name="author" content="JosephSabana">
+  <meta property="og:image" content="img/cover.png">
+  <meta property="og:title" content="YesOnIt">
+  <meta property="og:description" content="YesOnIt - Tool Access Manager">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+
+	  <link href="css/new-styles.css" rel="stylesheet">
+	  <link href="css/theme.css" rel="stylesheet">
+	<style>
+	
+		body{
+			background-image: url("img/yesimonit.png");
+			background-repeat: repeat;
+
+			background-size: cover;
+			background-color: var(--pt3);
+			
+			
+		}
+	</style>
+
+</head>
+  <body>
+    <div class="yes-login-container">
+      <img src="img/logo-1.svg" width="450px;" alt="iCloud Logo">
+      <h1>Sign in to Access Manager</h1>
+		
+		  <% if (error) { %>
+    <div style="color: red;"><%= error %></div>
+    		  <div class="spacer-10"></div>
+  <% } %>
+		
+		  <form action="/login" method="POST">
+      <div class="yes-form-group">
+        <input type="email" id="apple-id" placeholder=" " required>
+        <label for="apple-id">Company E-mail</label>
+      
+      </div>
+      <div class="yes-form-group" id="password-group">
+        <input type="password" id="password" placeholder=" " required>
+        <label for="password">Password</label>
+      </div>
+      <button class="yes-login-button"  type="submit">Sign In</button>
+		</form>
+		<p class="bottom-note">Contact your IT Administrator to gain access. </p>
+		
+		    </div>
+    
+	  
+
+	  
+	  
+  </body>
+	
+	
+	
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 622.5 622.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #0072a6;
+        stroke-miterlimit: 50;
+        stroke-width: 37.5px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g id="SVGRepo_iconCarrier" data-name="SVGRepo iconCarrier">
+      <path class="cls-1" d="m603.75,311.25v269.75c.07,12.5-10,22.68-22.5,22.75-.08,0-.17,0-.25,0H41.5c-12.5.07-22.68-10-22.75-22.5,0-.08,0-.17,0-.25V41.5c-.07-12.5,10-22.68,22.5-22.75.08,0,.17,0,.25,0h269.75"/>
+      <polyline class="cls-1" points="415.25 18.75 603.75 18.75 603.75 213.5"/>
+      <line class="cls-1" x1="152.75" y1="482.75" x2="593.88" y2="22.63"/>
+    </g>
+  </g>
+</svg>

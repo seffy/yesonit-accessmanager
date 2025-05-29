@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>YesOnIt! Access Manager</title>
+    <meta name="description" content="YesOnIt - Tool Content Development">
+    <meta name="keywords" content="YesOnIt, YesOnIt, YesOnIt, YesOnIt, Tool Content Development, Tool Access Management">
+    <meta name="author" content="JosephSabana">
+    <meta property="og:image" content="img/cover.png">
+    <meta property="og:title" content="YesOnIt">
+    <meta property="og:description" content="YesOnIt - Tool Content Development">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+    <link href="/css/new-styles.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+	
+</head>
+   <body>
+    <div class="main-con">
+
+<%- include('partials/header') %>
+
+<div style="height: 150vh!important;">
+ <section class="section container">
+
+<div class="container-form">
+  <h1 class="heading">Update User</h1>
+<form method="POST" action="/users/update/<%= user._id %>">
+  <div class="div-content-group">
+    <label for="name">Name</label>
+  <input type="text" name="name" value="<%= user.name %>" required />
+  </div>
+    <div class="div-content-group">
+    <label for="name">E-mail</label>
+  <input type="email" name="email" value="<%= user.email %>" required />
+  </div>
+
+    <div class="div-content-group">
+
+      <label for="department">Department:</label>
+<select name="department" id="department" class="form-control" required>
+  <option value="">Select Department</option>
+  <% departments.forEach(dep => { %>
+    <option value="<%= dep.name %>" <%= user.department === dep.name ? 'selected' : '' %>><%= dep.name %></option>
+  <% }) %>
+</select>
+
+      <!-- 
+    <label for="name">Department</label>
+  <input type="text" name="department" value="<%= user.department %>" /> -->
+    </div>
+     <div class="div-content-group">
+    <label for="name">Access Level</label>
+  <select name="accessLevel">
+    <option value="Level 1" <%= user.accessLevel === 'Level 1' ? 'selected' : '' %>>Level 1</option>
+    <option value="Level 2" <%= user.accessLevel === 'Level 2' ? 'selected' : '' %>>Level 2</option>
+    <option value="Level 3" <%= user.accessLevel === 'Level 3' ? 'selected' : '' %>>Level 3</option>
+    <option value="Level 4" <%= user.accessLevel === 'Level 4' ? 'selected' : '' %>>Level 4</option>
+    <option value="Level 5" <%= user.accessLevel === 'Level 5' ? 'selected' : '' %>>Level 5</option>
+  </select>
+  </div>
+  <div class="div-content-group" style="text-align: center;">
+    <button type="button" class="btn cancel" onclick="location.href='/home';">Cancel</button>
+  <button type="submit" class="btn submit">Update</button></div>
+</form>
+
+</div>
+
+
+
+
+</section>
+
+</div>
+  <%- include('partials/footer') %>
+</div>
+    <script src="/js/theme.js"></script>
+     <script src="/js/scripts.js"></script>
+  
+</body>
+</html>

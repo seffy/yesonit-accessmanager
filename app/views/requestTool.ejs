@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>YesOnIt! Access Manager</title>
+    <meta name="description" content="YesOnIt - Tool Content Development">
+    <meta name="keywords" content="YesOnIt, YesOnIt, YesOnIt, YesOnIt, Tool Content Development, Tool Access Management">
+    <meta name="author" content="JosephSabana">
+    <meta property="og:image" content="img/cover.png">
+    <meta property="og:title" content="YesOnIt">
+    <meta property="og:description" content="YesOnIt - Tool Content Development">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+    <link href="/css/new-styles.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+      <script>
+         function toggleRequestType() {
+           var type = document.querySelector('input[name="requestType"]:checked').value;
+           if (type === 'self') {
+             document.getElementById('someone-else-fields').style.display = 'none';
+           } else {
+             document.getElementById('someone-else-fields').style.display = 'block';
+           }
+         }
+      </script>
+   </head>
+   <body>
+    <div class="main-con">
+     <%- include('partials/header') %>
+<div style="height: 150vh!important;">
+ <section class="section container">
+  <!--Content-->
+     
+             <div class="container-form">
+
+              <h1 class="heading">Submit Access Requests</h1>
+                 <div class="requester-info">
+                  <strong>Requester Name:</strong>
+                  <span><%= user.name %></span>
+               </div>
+
+
+          
+            <% if (error) { %>
+            <div style="color: red; font-weight: bold;"><%= error %></div>
+            <% } %>
+            <% if (success) { %>
+            <div style="color: green; font-weight: bold;"><%= success %></div>
+            <% } %>
+            <form action="/submitToolRequest" method="POST" class="contentRequestForm">
+                  
+             <div class="div-content-group ">
+ <div class="radiobox">
+      <div class="content">
+        <input type="radio" name="requestType" id="one" value="self" checked  onchange="toggleRequestType()"  />
+        <input type="radio" name="requestType" id="two" value="someone_else" onchange="toggleRequestType()" />
+
+        <label for="one" class="box first">
+          <div class="plan">
+            <span class="circle"></span>
+            <span class="yearly">Request for myself</span>
+          </div>
+          <span class="price"></span>
+        </label>
+        <label for="two" class="box second">
+          <div class="plan">
+            <span class="circle"></span>
+            <span class="yearly">Request for someone else</span>
+          </div>
+          <span class="price"></span>
+        </label>
+
+      </div>
+    </div>
+</div>
+
+
+               <div class="div-content-group ">
+                  <label>Select Tool:</label>
+                  <select class="select-dropdown" name="toolName" required>
+                     <% tools.forEach(tool => { %>
+                     <option value="<%= tool.toolName %>"><%= tool.toolName %></option>
+                     <% }); %>
+                  </select>
+               </div>
+
+               <div id="someone-else-fields" style="display: none;">
+                  <!--  <input type="text" name="employeeId" placeholder="Employee ID"><br><br>
+                     <input type="email" name="employeeEmail" placeholder="Employee Email"><br><br> -->
+                  <div class="div-content-group">
+                     <label  for="employeeId">Employee ID</label>
+                     <input  type="text" name="employeeId" >
+                  </div>
+                  <div class="div-content-group">
+                            <label  for="employeeEmail">Employee Email</label>
+              
+                     <input  type="email" name="employeeEmail" >
+                  </div>
+               </div>
+
+               
+
+               <div class="div-content-group">
+                    <label for="approverEmail">Approver (Manager)</label>
+                  <input  type="email" name="approverEmail" >
+                
+               </div>
+               <div class="div-content-group">
+                   <label for="Justification">Justification</label>
+                  <textarea class="text-a" name="justification" required></textarea>
+               </div>
+                <div class="div-content-group" align="center">
+               <button class="btn cancel" onclick="location.href='/home';">Go Back</button>  <button class="btn submit" type="submit">Submit</button> 
+            </div></form>
+            <br>
+         </div>
+  
+
+
+              <!--End of Content-->
+</section>
+
+</div>
+  <%- include('partials/footer') %>
+</div>
+    <script src="/js/theme.js"></script>
+     <script src="/js/scripts.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Test</title>
+</head>
+<body>
+  <h2>Login Test</h2>
+  <% if (error) { %><p style="color: red;"><%= error %></p><% } %>
+
+  <form action="/login-test" method="POST">
+    <label>Email:</label>
+    <input type="email" name="email" required><br>
+    <label>Password:</label>
+    <input type="password" name="password" required><br>
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>
