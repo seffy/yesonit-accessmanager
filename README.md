@@ -158,7 +158,7 @@ kubectl delete hpa yesonit-accessmanager-hpa
 > Only if the code has changed or needs to be rebuilt
 
 ```bash
-cd backend
+cd app
 docker build -t josabana/yesonit-accessmanager:latest .
 docker push josabana/yesonit-accessmanager:latest
 ```
