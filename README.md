@@ -36,65 +36,85 @@ This tool is ideal for:
 
 ## 📦 Project Structure - y!onit Tool Access Manager
 
+
 ```
 yesonit-accessmanager
 ├─ README.md
-└─ app
-   ├─ .dockerignore
-   ├─ Dockerfile
-   ├─ app.js
-   ├─ controllers
-   │  ├─ authController.js
-   │  ├─ departmentController.js
-   │  ├─ homeController.js
-   │  ├─ landingController.js
-   │  ├─ toolAccessController.js
-   │  ├─ toolController.js
-   │  └─ userController.js
-   ├─ models
-   │  ├─ Counter.js
-   │  ├─ Department.js
-   │  ├─ Tool.js
-   │  ├─ ToolAccessRequest.js
-   │  └─ User.js
-   ├─ package-lock.json
-   ├─ package.json
-   ├─ public
-   │  ├─ css
-   │  ├─ img
-   │  └─ js
-   │     ├─ scripts.js
-   │     └─ theme.js
-   ├─ routes
-   │  ├─ authRoutes.js
-   │  ├─ departmentRoutes.js
-   │  ├─ homeRoutes.js
-   │  ├─ requestRoutes.js
-   │  ├─ testLoginRoutes.js
-   │  ├─ toolAccessRoutes.js
-   │  ├─ toolRoutes.js
-   │  └─ userRoutes.js
-   ├─ seed.js
-   └─ views
-      ├─ ViewAllUsers.ejs
-      ├─ addTool.ejs
-      ├─ addUser.ejs
-      ├─ home.ejs
-      ├─ login copy.htm
-      ├─ login.ejs
-      ├─ logintest.ejs
-      ├─ partials
-      │  ├─ footer.ejs
-      │  └─ header.ejs
-      ├─ requestTool.ejs
-      ├─ updateRequest.ejs
-      ├─ updateUser.ejs
-      ├─ viewDepartments.ejs
-      ├─ viewMyRequests.ejs
-      ├─ viewRequests.ejs
-      └─ yesonit.ejs
+├─ app
+│  ├─ .dockerignore
+│  ├─ Dockerfile
+│  ├─ app.js
+│  ├─ controllers
+│  │  ├─ authController.js
+│  │  ├─ departmentController.js
+│  │  ├─ homeController.js
+│  │  ├─ landingController.js
+│  │  ├─ toolAccessController.js
+│  │  ├─ toolController.js
+│  │  └─ userController.js
+│  ├─ models
+│  │  ├─ Counter.js
+│  │  ├─ Department.js
+│  │  ├─ Tool.js
+│  │  ├─ ToolAccessRequest.js
+│  │  └─ User.js
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ public
+│  │  ├─ css
+│  │  ├─ img
+│  │  └─ js
+│  │     ├─ scripts.js
+│  │     └─ theme.js
+│  ├─ routes
+│  │  ├─ authRoutes.js
+│  │  ├─ departmentRoutes.js
+│  │  ├─ homeRoutes.js
+│  │  ├─ requestRoutes.js
+│  │  ├─ testLoginRoutes.js
+│  │  ├─ toolAccessRoutes.js
+│  │  ├─ toolRoutes.js
+│  │  └─ userRoutes.js
+│  ├─ seed.js
+│  └─ views
+│     ├─ ViewAllUsers.ejs
+│     ├─ addTool.ejs
+│     ├─ addUser.ejs
+│     ├─ home.ejs
+│     ├─ login copy.htm
+│     ├─ login.ejs
+│     ├─ logintest.ejs
+│     ├─ partials
+│     │  ├─ footer.ejs
+│     │  └─ header.ejs
+│     ├─ requestTool.ejs
+│     ├─ updateRequest.ejs
+│     ├─ updateUser.ejs
+│     ├─ viewDepartments.ejs
+│     ├─ viewMyRequests.ejs
+│     ├─ viewRequests.ejs
+│     └─ yesonit.ejs
+└─ k8s
+   ├─ core - testing
+   │  ├─ configmap.yaml
+   │  ├─ deployment-extras.yaml
+   │  ├─ deployment.yaml
+   │  ├─ hpa.yaml
+   │  ├─ secret.yaml
+   │  └─ service.yaml
+   └─ extras - production - ready
+      ├─ configmap.yaml
+      ├─ deployment.yaml
+      ├─ hpa.yaml
+      ├─ ingress.yaml
+      ├─ namespace.yaml
+      ├─ pvc.yaml
+      ├─ rbac.yaml
+      ├─ secret.yaml
+      └─ service.yaml
 
 ```
+
 
 ---
 
@@ -118,7 +138,7 @@ yesonit-accessmanager
 npm install
 ```
 
-4. Create a `.env` file in project root:
+4. Create a `.env` file in project root (Optional):
 
 ```bash
 PORT=3000
@@ -133,7 +153,7 @@ npm start
 ```
 
 6. Access the app at:  
-http://localhost:3000/login
+http://localhost:3000
 
 ---
 

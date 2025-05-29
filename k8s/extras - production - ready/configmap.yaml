@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: yesonit-config
+  namespace: yesonit
+data:
+  NODE_ENV: production

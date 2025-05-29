@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: yesonit-accessmanager-service
+  namespace: yesonit
+spec:
+  type: NodePort
+  selector:
+    app: yesonit-accessmanager
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30008

@@ -47,5 +47,4 @@ docker-compose.override.yml
 tmp/
 temp/
 uploads/
-k8s/
 docs/
