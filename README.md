@@ -1,35 +1,7 @@
-# y!on8 Platform Overview
 
-`y!on8` (formerly known as TaskPilot, and pronounced “yes, on it”) is a unified, modular, cloud-native platform designed to simplify and automate internal workflows across organizations. It enables teams to manage resource access, content requests, approvals, and operational tasks through scalable, role-based tools—all within a secure and centralized environment.
+# 📦 y!on8 (yes, on it!) Tool Access Manager
 
-Each application within y!on8 is built and deployed as an independent microservice, allowing for enhanced scalability, maintainability, and flexibility. The platform integrates seamlessly using a shared frontend UI (EJS), connects to cloud-hosted MongoDB databases, and is deployed using Docker and Kubernetes—making it ideal for small to medium enterprises (SMEs) as well as growing teams.
-
-Whether it’s submitting a content development request, requesting access to enterprise tools, or managing IT asset handovers, y!on8 provides a tailored suite of apps that align with real-world business processes and internal control standards.
-
----
-
-## 🧩 Microservices Within y!on8
-
-Each microservice has:
-- Its own Node.js + Express backend
-- A dedicated MongoDB Atlas database
-- Independent deployment with Docker and Kubernetes
-- Secrets and configuration managed via Kubernetes Secrets & ConfigMaps
-
-| Microservice | Description |
-|--------------|-------------|
-| **Access Manager** | Allows users to request internal tool access, with approval workflow and admin controls. |
-| **Training Request Manager** | Handles employee training/course requests and supervisor approval tracking. |
-| **Content Request Development Manager** | Enables departments to request learning, media, or marketing content. |
-| **Asset & Equipment Manager** | Manages IT asset checkout requests like laptops, monitors, etc. |
-| **Software License Manager** | Tracks and handles requests for software licenses and renewals. |
-
----
-
-
-# 📦 y!onit Tool Access Manager
-
-The **y!onit Tool Access Manager** is another modular service within the **y!on8** platform.  
+The **y!on8 Tool Access Manager** is another modular service within the **y!on8** platform.  
 It enables employees to request access to internal tools, platforms, and software licenses in a structured, trackable way.
 
 This module simplifies the tool access workflow by allowing users to:
@@ -269,84 +241,41 @@ containers:
 # 📣 Important Notes
 
 - MongoDB used is hosted in MongoDB Atlas (external DB).
-- Persistent Volume Claims (PVCs) not needed because no local database state to persist.
 - Secrets must be Base64 encoded before adding to `secret.yaml`.
 - `kubectl logs` can be used for basic application monitoring.
 
 ---
 
-# 📚 References
-- Kubernetes Documentation
-- Docker Documentation
-- MongoDB Atlas Documentation
+
+# y!on8 Platform Overview
+
+`y!on8` (formerly known as TaskPilot, and pronounced “yes, on it”) is a unified, modular, cloud-native platform designed to simplify and automate internal workflows across organizations. It enables teams to manage resource access, content requests, approvals, and operational tasks through scalable, role-based tools—all within a secure and centralized environment.
+
+Each application within y!on8 is built and deployed as an independent microservice, allowing for enhanced scalability, maintainability, and flexibility. The platform integrates seamlessly using a shared frontend UI (EJS), connects to cloud-hosted MongoDB databases, and is deployed using Docker and Kubernetes—making it ideal for small to medium enterprises (SMEs) as well as growing teams.
+
+Whether it’s submitting a content development request, requesting access to enterprise tools, or managing IT asset handovers, y!on8 provides a tailored suite of apps that align with real-world business processes and internal control standards.
 
 ---
 
-# yesonit Access Manager – Kubernetes Restart Recovery Guide
+## 🧩 Microservices Within y!on8
 
-## 📋 Problem Encountered
-When restarting Docker Desktop (and Kubernetes), some resources like Kubernetes Secrets and environment settings are lost.
+Each microservice has:
+- Its own Node.js + Express backend
+- A dedicated MongoDB Atlas database
+- Independent deployment with Docker and Kubernetes
+- Secrets and configuration managed via Kubernetes Secrets & ConfigMaps
 
-Result: Visiting http://localhost:30008 may cause login errors (e.g., "Server Error. Please try again.")
-
----
-
-## 📋 Common Causes
-- Kubernetes Secrets (MONGO_URI, SESSION_SECRET) not persisted.
-- Pods restarted without correct environment variables.
-- Application inside pod cannot connect to MongoDB Atlas.
-
----
-
-## 📋 Quick Recovery Steps
-
-### 🛠 1. Check if Pod is Running
-```bash
-kubectl get pods
-```
-
-### 🛠 2. Check Pod Logs
-```bash
-kubectl logs <pod-name>
-```
-
-Look for errors like missing MONGO_URI or database connection issues.
-
-### 🛠 3. Reapply Secrets
-```bash
-kubectl apply -f k8s/secret.yaml
-```
-
-This reloads MongoDB URI and session key securely.
-
-### 🛠 4. Delete Pod
-```bash
-kubectl delete pod <pod-name>
-```
-
-The Deployment will recreate a new pod automatically using the updated Secrets.
-
-### 🛠 5. Verify and Access App
-```bash
-http://localhost:30008
-```
-
-Login should now work without server errors.
+| Microservice | Description |
+|--------------|-------------|
+| **Access Manager** | Allows users to request internal tool access, with approval workflow and admin controls. |
+| **Training Request Manager** | Handles employee training/course requests and supervisor approval tracking. |
+| **Content Request Development Manager** | Enables departments to request learning, media, or marketing content. |
+| **Asset & Equipment Manager** | Manages IT asset checkout requests like laptops, monitors, etc. |
+| **Software License Manager** | Tracks and handles requests for software licenses and renewals. |
 
 ---
-
-## 📋 Why This Happens
-- Docker Desktop’s Kubernetes does NOT persist Secrets/ConfigMaps across restarts (unlike production clusters).
-- Manual re-application of secrets after reboot is a normal process during development.
-
----
-
-# 🎯 Summary
-After restarting Docker Desktop, always:
-1. Reapply `k8s/secret.yaml`.
-2. Delete pods if necessary to trigger fresh deployment.
-
-
 
 ## 👨‍💻 Developer
 - Designed and Developed by JosephSabana for SIT727 Cloud Computing Project
+
+
